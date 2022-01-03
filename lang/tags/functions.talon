@@ -1,6 +1,6 @@
 tag: user.code_functions
 -
-^funky <user.text>$: user.code_default_function(text)
+^new func <user.text>$: user.code_default_function(text)
 ^pro funky <user.text>$: user.code_protected_function(text)
 ^pub funky <user.text>$: user.code_public_function(text)
 ^static funky <user.text>$: user.code_private_static_function(text)
