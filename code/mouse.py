@@ -109,6 +109,26 @@ def gui_wheel(gui: imgui.GUI):
         actions.user.mouse_scroll_stop()
 
 
+def mouse_scroll_continuous(direction: str, factor: float):
+    """Returns closure for either scrolling up or down"""
+
+    abs_Δ = setting_mouse_continuous_scroll_amount.get() * factor
+    signed_Δ = abs_Δ * (1 if direction == "down" else -1)
+
+    def inner():
+        """Inner function to be returned"""
+        global continuous_scoll_mode
+        continuous_scoll_mode = f"scroll {direction} continuous; {factor}x"
+        mouse_scroll(signed_Δ)()
+
+        if scroll_job is None:
+            start_scroll()
+        if setting_mouse_hide_mouse_gui.get() == 0:
+            gui_wheel.show()
+
+    return inner
+
+
 @mod.action_class
 class Actions:
     def mouse_show_cursor():
@@ -185,32 +205,42 @@ class Actions:
         """Scrolls down"""
         mouse_scroll(amount * setting_mouse_wheel_down_amount.get())()
 
-    def mouse_scroll_down_continuous():
+
+    def mouse_scroll_down_continuous(factor: float = 1.0):
         """Scrolls down continuously"""
-        global continuous_scoll_mode
-        continuous_scoll_mode = "scroll down continuous"
-        mouse_scroll(setting_mouse_continuous_scroll_amount.get())()
+        mouse_scroll_continuous("down", factor)()
 
-        if scroll_job is None:
-            start_scroll()
+    def mouse_scroll_up_continuous(factor: float = 1.0):
+        """Scrolls up continuously"""
+        mouse_scroll_continuous("up", factor)()
 
-        if setting_mouse_hide_mouse_gui.get() == 0:
-            gui_wheel.show()
+
+    # def mouse_scroll_down_continuous():
+    #     """Scrolls down continuously"""
+    #     global continuous_scoll_mode
+    #     continuous_scoll_mode = "scroll down continuous"
+    #     mouse_scroll(setting_mouse_continuous_scroll_amount.get())()
+
+    #     if scroll_job is None:
+    #         start_scroll()
+
+    #     if setting_mouse_hide_mouse_gui.get() == 0:
+    #         gui_wheel.show()
 
     def mouse_scroll_up(amount: float = 1):
         """Scrolls up"""
         mouse_scroll(-amount * setting_mouse_wheel_down_amount.get())()
 
-    def mouse_scroll_up_continuous():
-        """Scrolls up continuously"""
-        global continuous_scoll_mode
-        continuous_scoll_mode = "scroll up continuous"
-        mouse_scroll(-setting_mouse_continuous_scroll_amount.get())()
+    # def mouse_scroll_up_continuous():
+    #     """Scrolls up continuously"""
+    #     global continuous_scoll_mode
+    #     continuous_scoll_mode = "scroll up continuous"
+    #     mouse_scroll(-setting_mouse_continuous_scroll_amount.get())()
 
-        if scroll_job is None:
-            start_scroll()
-        if setting_mouse_hide_mouse_gui.get() == 0:
-            gui_wheel.show()
+    #     if scroll_job is None:
+    #         start_scroll()
+    #     if setting_mouse_hide_mouse_gui.get() == 0:
+    #         gui_wheel.show()
 
     def mouse_scroll_left(amount: float = 1):
         """Scrolls left"""
@@ -290,7 +320,7 @@ def on_pop(active):
         stop_scroll()
     elif (
         not eye_zoom_mouse.zoom_mouse.enabled
-        and eye_mouse.mouse.attached_tracker is not None
+        # and eye_mouse.mouse.attached_tracker is not None # so tt can pop even w/o tracker
     ):
         if setting_mouse_enable_pop_click.get() >= 1:
             ctrl.mouse_click(button=0, hold=16000)
