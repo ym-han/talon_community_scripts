@@ -150,8 +150,8 @@ formatters_words = {
     "dunder": formatters_dict["DOUBLE_UNDERSCORE"],
     "hammer": formatters_dict["PUBLIC_CAMEL_CASE"],
     "kebab": formatters_dict["DASH_SEPARATED"],
-    "packed": formatters_dict["DOUBLE_COLON_SEPARATED"],
-    "padded": formatters_dict["SPACE_SURROUNDED_STRING"],
+    "dubcolon": formatters_dict["DOUBLE_COLON_SEPARATED"],
+    # "padded": formatters_dict["SPACE_SURROUNDED_STRING"],
     "slasher": formatters_dict["SLASH_SEPARATED"],
     "smash": formatters_dict["NO_SPACES"],
     "snake": formatters_dict["SNAKE_CASE"],
@@ -289,7 +289,7 @@ def unformat_text(text: str) -> str:
 ctx.lists["self.formatters"] = formatters_words.keys()
 ctx.lists["self.prose_formatter"] = {
     "say": "NOOP",
-    "speak": "NOOP",
-    "sentence": "CAPITALIZE_FIRST_WORD",
+    # "speak": "NOOP",
+    "line": "CAPITALIZE_FIRST_WORD",
 }
 

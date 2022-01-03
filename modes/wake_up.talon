@@ -16,3 +16,5 @@ mode: all
 ^talon sleep [<phrase>]$: speech.disable()
 ^talon wake$: speech.enable()
 
+
+key(cmd-alt-s): speech.toggle()
