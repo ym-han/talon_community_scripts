@@ -1,3 +1,4 @@
+clap: key(enter)
 wipe: key(backspace)   
 
 zoom in: edit.zoom_in()
@@ -39,7 +40,7 @@ brace wrap:
 pad it: 
   insert("  ") 
   key(left)
-slap:
+endy:
   edit.line_end()
   key(enter)
 
