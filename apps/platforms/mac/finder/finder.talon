@@ -26,3 +26,7 @@ trash it: key(cmd-backspace)
 
 hide [finder]: key(cmd-h)
 hide others: app.window_hide_others()
+
+edit sub: key(cmd-alt-o) 
+#cmd-opt-o is the keybinding for the Open in Sublime text workflow in alfred
+

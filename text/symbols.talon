@@ -1,16 +1,12 @@
-question [mark]: "?"
-(downscore | underscore): "_"
+questo: "?"
 double dash: "--"
-(bracket | brack | left bracket): "{"
-(rbrack | are bracket | right bracket): "}"
 triple quote: "'''"
-(triple grave | triple back tick | gravy):
+triple back tick | gravy):
     insert("```")
-(dot dot | dotdot): ".."
+
 ellipses: "..."
-(comma and | spamma): ", "
-plus: "+"
-arrow: "->"
+
+syn arrow: "->"
 dub arrow: "=>"
 new line: "\\n"
 carriage return: "\\r"
@@ -29,37 +25,39 @@ empty escaped string:
     "\\'\\'"
     key(left)
     key(left)
-(inside parens | args):
+
+args: "()"
+inside parens:
 	insert("()")
 	key(left)
-inside (squares | square brackets | list):
+inside brackets:
 	insert("[]")
 	key(left)
-inside (bracket | braces):
+inside braces:
 	insert("{}")
 	key(left)
 inside percent:
 	insert("%%")
 	key(left)
-inside (quotes | string):
+inside quotes:
 	insert("''")
 	key(left)
-inside (double quotes | dubquotes):
+inside dub quotes:
     insert('""')
 	key(left)
-inside (graves | back ticks):
+inside back ticks:
 	insert("``")
 	key(left)
 angle that:
     text = edit.selected_text()
     user.paste("<{text}>")
-(square | square bracket) that:
+bracket that:
     text = edit.selected_text()
     user.paste("[{text}]")
-(bracket | brace) that:
+brace that:
     text = edit.selected_text()
     user.paste("{{{text}}}")
-(parens | args) that:
+args that:
     text = edit.selected_text()
     user.paste("({text})")
 percent that:
@@ -68,9 +66,114 @@ percent that:
 quote that:
     text = edit.selected_text()
     user.paste("'{text}'")
-(double quote | dubquote) that:
+dubquote that:
     text = edit.selected_text()
     user.paste('"{text}"')
-(grave | back tick) that:
+back tick that:
     text = edit.selected_text()
     user.paste('`{text}`')
+
+
+
+sym a prox:
+  clip.set_text('≈')
+  edit.paste()
+sym not a prox: 
+  clip.set_text('≉')
+  edit.paste()
+
+sym square root:
+  clip.set_text('√')
+  edit.paste()
+
+sym empty set:
+  clip.set_text('∅')
+  edit.paste()
+
+sym union:
+  clip.set_text('∪')
+  edit.paste()
+
+
+sym greater equal:
+  clip.set_text('≥')
+  edit.paste()
+
+
+     
+sym delta:
+  clip.set_text('∆')
+  edit.paste()
+
+sym nabla:
+  clip.set_text('∇')
+  edit.paste()
+
+
+
+sym mu:
+  clip.set_text('μ')
+  edit.paste()
+
+sym partial:
+  clip.set_text('∂')
+  edit.paste()
+  
+sym theta:
+  clip.set_text('θ')
+  edit.paste()
+
+sym big theta:
+  clip.set_text('Θ')
+  edit.paste()
+
+sym theta hat:
+  clip.set_text('θ̂')
+  edit.paste()
+
+sym yank bar:
+  clip.set_text('ȳ')
+  edit.paste()
+
+sym plex bar:
+  clip.set_text('x̄')
+  edit.paste()
+
+sym beta:
+  clip.set_text('β')
+  edit.paste()
+  
+sym sigma:
+  clip.set_text('σ')
+  edit.paste()
+
+sym big sigma:
+  clip.set_text('∑')
+  edit.paste()
+
+
+sym small gamma:
+  clip.set_text('γ')
+  edit.paste()
+
+sym gamma:
+  clip.set_text('Γ')
+  edit.paste()
+
+sym expectation:
+  clip.set_text('𝔼')
+  edit.paste()
+
+sym probability:
+  clip.set_text('𝕡')
+  edit.paste()
+
+sym variance:
+  clip.set_text('𝕍')
+  edit.paste()
+
+
+sym not member of:
+  clip.set_text('∉')
+  edit.paste()
+
