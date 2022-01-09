@@ -1,5 +1,6 @@
 import time
 from talon import Context, Module, actions, clip, ui
+import re
 
 key = actions.key
 edit = actions.edit
