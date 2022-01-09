@@ -7,9 +7,9 @@ zoom out: edit.zoom_out()
 scroll up: edit.page_up()
 scroll down: edit.page_down()
 
-copy that: edit.copy()
-cut that: edit.cut()
-(pace | paste) that: edit.paste() 
+cop it: edit.copy()
+cut it: edit.cut()
+paste it: edit.paste() 
 
 slow mode: mode.enable("user.slow")
 
@@ -37,7 +37,7 @@ brace wrap:
   edit.line_end()
   insert("}")
 
-pad it: 
+padder: 
   insert("  ") 
   key(left)
 endy:

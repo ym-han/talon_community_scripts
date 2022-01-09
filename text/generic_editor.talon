@@ -11,31 +11,30 @@ go word right:
     edit.word_right()
 
 
-^<number> before$:
+^<number_small> before:
     edit.word_left()
-    repeat(number - 1)
+    repeat(number_small - 1)
 
-^<number> after$:
+^<number_small> after:
     edit.word_right()
-    repeat(number - 1)
+    repeat(number_small - 1)
 
+[<number_small>] left:
+    user.left(number_small or 1)
 
-go left:
-    edit.left()
+[<number_small>] right:
+    user.right(number_small or 1)
 
-go right:
-    edit.right()
+[<number_small>] up:
+    user.up(number_small or 1)
 
-go up:
-    edit.up()
-
-go down:
-    edit.down()
+[<number_small>] down:
+    user.down(number_small or 1)
 
 head:
     edit.line_start()
 
-push:
+tail:
     edit.line_end()
 
 go way left:
@@ -63,97 +62,93 @@ go page down:
 go page up:
     edit.page_up()
 
-# selecting
+# ---------- selecting
 select line:
     edit.select_line()
 
-select all:
+take all:
     edit.select_all()
 
-select left:
+extend left:
     edit.extend_left()
 
-select right:
+extend right:
     edit.extend_right()
 
-select up:
+extend up:
     edit.extend_line_up()
 
-select down:
+extend down:
     edit.extend_line_down()
 
-select word:
+take word:
     edit.select_word()
 
-select word left:
+extend wester:
     edit.extend_word_left()
 
-select word right:
+extend easter:
     edit.extend_word_right()
 
-#select way left:
-lexi:
+take to head:
     edit.extend_line_start()
 
-#select way right:  
-ricksy:
+take to tail:
     edit.extend_line_end()
 
-select way up:
+take all up:
     edit.extend_file_start()
 
-select way down:
+take all down:
     edit.extend_file_end()
 
 # extend selection __to__ previous / next word
-^<number> befores:
+^<number_small> befores:
     edit.extend_word_left()
-    repeat(number - 1)
+    repeat(number_small - 1)
 
-^<number> afters:
+^<number_small> afters:
     edit.extend_word_right()
-    repeat(number - 1)
+    repeat(number_small - 1)
 
 
 
-# editing
+# ---------- editing
 indent [more]:
     edit.indent_more()
 
 (indent less | out dent):
     edit.indent_less()
 
-# deleting
+# ---------- deleting
 snip line:
     edit.delete_line()
 
-clear right:
+drill:
     key(delete)
 
-clear up:
+snip up:
     edit.extend_line_up()
     edit.delete()
 
-clear down:
+snip down:
     edit.extend_line_down()
     edit.delete()
 
 junk word:
     edit.delete_word()
 
-
-junk previous:
+junk left:
     edit.word_left()
     key(right)
     edit.select_word()
     edit.delete()
 
-junk next:
+junk right:
     edit.word_right()
     key(left)
     edit.select_word()
     edit.delete()
-
 
 
 snip till previous:
