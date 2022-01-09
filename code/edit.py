@@ -170,3 +170,19 @@ class Actions:
         """Moves right by n words."""
         for _ in range(n):
             actions.edit.word_right()
+            
+
+def paste_text(text: str):
+    """Pastes text and preserves clipboard"""
+    with clip.revert():
+        clip.set_text(text)
+
+        if clip.text() != text:
+            user.notify("Failed to set clipboard")
+            print(f"Clipboard: '{clip.text()}'")
+            return False
+
+        edit.paste()
+        # sleep here so that clip.revert doesn't revert the clipboard too soon
+        actions.sleep("150ms")
+    return True
