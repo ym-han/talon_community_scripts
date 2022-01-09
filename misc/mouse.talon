@@ -57,7 +57,7 @@ dubclick:
 	# close the mouse grid
 	user.grid_close()
 
-drag:
+drag it:
 	user.mouse_drag(0)
 	# close the mouse grid
 	user.grid_close()
@@ -70,7 +70,7 @@ right drag:
 drag stop:
     user.mouse_drag_end()
 
-scroll down: user.mouse_scroll_down()
+#scroll down: user.mouse_scroll_down()
 scroll down here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_down()
@@ -79,7 +79,7 @@ scroll tiny [down] here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_down(0.2)
 
-downzie: user.mouse_scroll_down_continuous()
+downy: user.mouse_scroll_down_continuous()
 downslow: user.mouse_scroll_down_continuous(0.45)
 
 
@@ -88,7 +88,7 @@ downslow: user.mouse_scroll_down_continuous(0.45)
 #    user.mouse_move_center_active_window()
 #    user.mouse_scroll_down_continuous()
 
-scroll up: user.mouse_scroll_up()
+#scroll up: user.mouse_scroll_up()
 scroll up here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_up()
@@ -98,7 +98,7 @@ scroll tiny up here:
     user.mouse_scroll_up(0.2)
 
 
-gups: user.mouse_scroll_up_continuous()
+guppy: user.mouse_scroll_up_continuous()
 gupslow: user.mouse_scroll_up_continuous(0.45)
 #gups here:
 #    user.mouse_move_center_active_window()
