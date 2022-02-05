@@ -1,5 +1,3 @@
-clap: key(enter)
-wipe: key(backspace)   
 
 zoom in: edit.zoom_in()
 zoom out: edit.zoom_out()
@@ -40,14 +38,12 @@ brace wrap:
 padder: 
   insert("  ") 
   key(left)
-endy:
+nexxy:
   edit.line_end()
   key(enter)
 
 alfred: key(cmd-space)
 vi mac: key(ctrl-alt-shift-v)
-
-
 
 
 # To do in the future: revert this to 'focus', and add a conditional: if already in list of running apps, just focus on it; if not, launch it.

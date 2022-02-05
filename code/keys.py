@@ -3,7 +3,7 @@ from typing import Set
 from talon import Module, Context, actions, app
 import sys
 
-default_alphabet = "air bat cap drum each fine gust harp sit jury crunch look made near odd pit quench red sun trap you vest whale plex yank zip".split(
+default_alphabet = "air bat cap drum each fine gust harp sit jury crunch look made near odd pit quench red sun trap urn vest whale plex yank zip".split(
     " "
 )
 letters_string = "abcdefghijklmnopqrstuvwxyz"
@@ -213,15 +213,16 @@ simple_keys = [
     "pagedown",
     "pageup",
     "space",
-    "tab",
+    "tab it",
 ]
 
 alternate_keys = {
     # "delete": "backspace",
     "forward delete": "delete",
-    #'junk': 'backspace',
+    'junk': 'backspace',
     "page up": "pageup",
     "page down": "pagedown",
+    "clap": "enter",
 }
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):

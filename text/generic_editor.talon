@@ -1,7 +1,7 @@
 find it:
     edit.find()
 
-next one:
+next one:   
     edit.find_next()
 
 go word left:
@@ -196,8 +196,6 @@ copy right:
     key(left)
 
 
-
-
 copy word:
     edit.select_word()
     edit.copy()
@@ -230,7 +228,6 @@ cut right:
     key(delete)
 
 
-
 cut word:
     edit.select_word()
     edit.cut()
@@ -246,4 +243,7 @@ cut word right:
 cut line:
     edit.select_line()
     edit.cut()
+
+# ----- Text insertions -----
+make to do: "TODO"
 

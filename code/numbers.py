@@ -185,6 +185,6 @@ def number_signed(m):
     return -number if (m[0] in ["negative", "minus"]) else number
 
 @ctx.capture(
-    "number_small", rule=f"({alt_digits} | {alt_teens} | {alt_tens} [{alt_digits}])"
+    "number_small", rule=f"({alt_digits} | {alt_tens} [{alt_digits}])"
 )
 def number_small(m): return int(parse_number(list(m)))

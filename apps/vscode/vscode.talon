@@ -7,6 +7,8 @@ tag(): user.multiple_cursors
 tag(): user.snippets
 tag(): user.splits
 tag(): user.tabs
+tag(): terminal
+
 window reload: user.vscode("workbench.action.reloadWindow")
 window close: user.vscode("workbench.action.closeWindow")
 #multiple_cursor.py support end
@@ -33,9 +35,13 @@ symbol hunt [<user.text>]:
 panel control: user.vscode("workbench.panel.repl.view.focus")
 panel output: user.vscode("workbench.panel.output.focus")
 panel problems: user.vscode("workbench.panel.markers.view.focus")
-panel switch: user.vscode("workbench.action.togglePanel")
+panel toggle: user.vscode("workbench.action.togglePanel")
 panel terminal: user.vscode("workbench.action.terminal.focus")
-focus editor: user.vscode("workbench.action.focusActiveEditorGroup")
+edits: user.vscode("workbench.action.focusActiveEditorGroup")
+
+move panel right: key(cmd-alt-ctrl-right)
+move panel left: key(cmd-alt-ctrl-left)
+
 
 # Settings
 show settings: user.vscode("workbench.action.openGlobalSettings")
@@ -46,7 +52,7 @@ show snippets: user.vscode("workbench.action.openSnippets")
 centered switch: user.vscode("workbench.action.toggleCenteredLayout")
 fullscreen switch: user.vscode("workbench.action.toggleFullScreen")
 theme switch: user.vscode("workbench.action.selectTheme")
-wrap switch: user.vscode("editor.action.toggleWordWrap")
+word wrap: user.vscode("editor.action.toggleWordWrap")
 zen switch: user.vscode("workbench.action.toggleZenMode")
 
 # File Commands
@@ -83,7 +89,7 @@ problem last: user.vscode("editor.action.marker.prevInFiles")
 problem fix: user.vscode("problems.action.showQuickFixes")
 rename that: user.vscode("editor.action.rename")
 refactor that: user.vscode("editor.action.refactor")
-whitespace trim: user.vscode("editor.action.trimTrailingWhitespace")
+trim whitespace: user.vscode("editor.action.trimTrailingWhitespace")
 language switch: user.vscode("workbench.action.editor.changeLanguageMode")
 refactor rename: user.vscode("editor.action.rename")
 refactor this: user.vscode("editor.action.refactor")
@@ -163,17 +169,17 @@ debug restart: user.vscode("workbench.action.debug.restart")
 debug console: user.vscode("workbench.debug.action.toggleRepl")
 
 # Terminal
-terminal external: user.vscode("workbench.action.terminal.openNativeConsole")
-terminal new: user.vscode("workbench.action.terminal.new")
-terminal next: user.vscode("workbench.action.terminal.focusNext")
-terminal last: user.vscode("workbench.action.terminal.focusPrevious")
-terminal split: user.vscode("workbench.action.terminal.split")
-terminal zoom: user.vscode("workbench.action.toggleMaximizedPanel")
-terminal trash: user.vscode("workbench.action.terminal.kill")
-terminal toggle: user.vscode_and_wait("workbench.action.terminal.toggleTerminal")
-terminal scroll up: user.vscode("workbench.action.terminal.scrollUp")
-terminal scroll down: user.vscode("workbench.action.terminal.scrollDown")
-terminal <number_small>: user.vscode_terminal(number_small)
+term external: user.vscode("workbench.action.terminal.openNativeConsole")
+term new: user.vscode("workbench.action.terminal.new")
+term next: user.vscode("workbench.action.terminal.focusNext")
+term last: user.vscode("workbench.action.terminal.focusPrevious")
+term split: user.vscode("workbench.action.terminal.split")
+term zoom: user.vscode("workbench.action.toggleMaximizedPanel")
+term trash: user.vscode("workbench.action.terminal.kill")
+term toggle: user.vscode_and_wait("workbench.action.terminal.toggleTerminal")
+term scroll up: user.vscode("workbench.action.terminal.scrollUp")
+term scroll down: user.vscode("workbench.action.terminal.scrollDown")
+term <number_small>: user.vscode_terminal(number_small)
 
 #TODO: should this be added to linecommands?
 copy line down: user.vscode("editor.action.copyLinesDownAction")
@@ -198,14 +204,53 @@ join lines: user.vscode("editor.action.joinLines")
 full screen: user.vscode("workbench.action.toggleFullScreen")
 
 curse undo: user.vscode("cursorUndo")
+curse toggle: user.vscode("cursorless.toggleDecorations")
 
 select word: user.vscode("editor.action.addSelectionToNextFindMatch")
 skip word: user.vscode("editor.action.moveSelectionToNextFindMatch")
 
+
+run it: user.vscode("ipython.sendSelectedToIpython")
+
 # jupyter
 cell next: user.vscode("jupyter.gotoNextCellInFile")
-cell last: user.vscode("jupyter.gotoPrevCellInFile")
+cell prev: user.vscode("jupyter.gotoPrevCellInFile")
 cell run above: user.vscode("jupyter.runallcellsabove.palette")
 cell run: user.vscode("jupyter.runcurrentcell")
+cell new: 
+    key(esc)
+    key(b) 
+#user.vscode("jupyter.insertCellBellowPosition") 
+cell down: user.vscode("jupyter.moveCellsDown") 
+cell up: user.vscode("jupyter.moveCellsUp") 
+
+junk cells: user.vscode("jupyter.deleteCells")
+junk cell: 
+    key(esc)
+    key(d:2)
+
+jupiter save to pdf: user.vscode("jupyter.exportToPDF") 
+jupiter variables: user.vscode("jupyter.openVariableView") 
+
+jupiter run all cells: user.vscode("jupyter.runallcells")
+
+cell markdown: 
+    key(esc)
+    key(m)
+#user.vscode("jupyter.changeCellToMarkdown")
+cell code: 
+    key(esc)
+    key(y)
+#user.vscode("jupyter.changeCellToCode")
+
+## magics
+magic bash: "%%bash"
+magic latex: "%%latex"
+magic time it: "%timeit"
+magic p run: "%prun"
+magic h t m l: "%% HTML"
+magic matplotlib: "%matplotlib"
+
+
 
 install local: user.vscode("workbench.extensions.action.installVSIX")

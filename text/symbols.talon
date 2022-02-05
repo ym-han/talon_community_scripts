@@ -1,9 +1,13 @@
 questo: "?"
 double dash: "--"
 triple quote: "'''"
-triple back tick | gravy):
+triple batick:
     insert("```")
 
+state h t t p: "http://"
+
+space qual: " = "
+ 
 ellipses: "..."
 
 syn arrow: "->"
@@ -45,7 +49,7 @@ inside quotes:
 inside dub quotes:
     insert('""')
 	key(left)
-inside back ticks:
+inside baticks:
 	insert("``")
 	key(left)
 angle that:

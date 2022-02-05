@@ -48,10 +48,19 @@ gunzip recursive: "gunzip -r "
 
 git name: "ym-han\n"
 
-rg: "rg "
-rg in python file: "rg tofind --type py"
-rg ignore case: "rg -i "
+r grep: "rg "
+grep in python file: "rg tofind --type py"
+grep ignore case: "rg -i "
 
+sublime: "subl "
+
+pseudo a p t update: "sudo apt-get update"
+
+pseduo a p t install: "sudo apt install "
+
+enter three hundred container: "'/Users/ymh/Documents/Git_repos/cs stuff/cs300_env/cs300-run-docker'"
+
+go to three hundred projects: "cd *projects*\n"
 
 # === ENVIRONMENTS
 make virtual environment: "virtualenv"
@@ -130,6 +139,7 @@ go to embedding scripts: "cd /users/yh31/scratch/projects/embed_exp\n"
 go to sense ref scripts: "cd /users/yh31/scratch/projects/sr_neural/scripts/etl/nyt\n"
 go to text gen: "cd /users/yh31/scratch/projects/sr_neural/scripts/\n"
 go to lip data: "cd /users/yh31/scratch/projects/lip/data\n"
+
 # === CONDA
 
 conda list environments: "conda env list"
@@ -193,7 +203,7 @@ vim save it:
     insert(":x")
 
 
-snip whole line:
+snip line:
     key(esc)
     insert("dd")
 
@@ -226,3 +236,5 @@ run last: user.terminal_run_last()
 rerun [<user.text>]: user.terminal_rerun_search(text or "")
 rerun search: user.terminal_rerun_search("")
 #kill all: user.terminal_kill_all()
+
+
