@@ -1,6 +1,6 @@
 -
 settings():
-    speech.timeout = 0.25
+    speech.timeout = 0.26
     speech.record_all = 1
 
     # Set the max number of contexts display per page in help

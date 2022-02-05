@@ -6,7 +6,7 @@ and code.language: python
 -
 tag(): user.code_imperative
 tag(): user.code_object_oriented
-
+    
 tag(): user.code_comment_line
 tag(): user.code_comment_documentation
 tag(): user.code_data_bool
@@ -22,7 +22,7 @@ tag(): user.code_operators_math
 
 settings():
     user.code_private_function_formatter = "SNAKE_CASE"
-    user.code_protected_function_formatter = "SNAKE_CASE"
+    user. = "SNAKE_CASE"
     user.code_public_function_formatter = "SNAKE_CASE"
     user.code_private_variable_formatter = "SNAKE_CASE"
     user.code_protected_variable_formatter = "SNAKE_CASE"
@@ -131,7 +131,7 @@ import data stuff:
     insert("import pandas as pd\n")
     insert("import pickle\n")
     insert("from pathlib import Path\n")
-    insert("from fastcore.all import *\n")
+    #insert("from fastcore.all import *\n")
 
 import torch stuff:
     """import torch

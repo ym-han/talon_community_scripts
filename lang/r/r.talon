@@ -34,9 +34,12 @@ library <user.code_libraries>:
     key(end enter)
 
 # R specific commands
-pipe that:
+
+and then: " |> "
+
+big pipe:
     key(end)
-    " %>%"
+    " |>"
     key(enter)
 state na:
     insert("NA")

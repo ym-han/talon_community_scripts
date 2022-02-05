@@ -75,6 +75,9 @@ group by sort true:
 by row: "ByRow"
 subset: "subset("
 
+subset rows: "@rsubset "
+
+
 df sort reverse: "sort!(df, :col, rev=true)"
 reverse equal true: "rev=true"
 
@@ -196,13 +199,13 @@ transform bang: "transform!("
 
 read csv: 'df = CSV.read(fnm, DataFrame)' 
 # to do: make it use selected txt instead of `fnm`
-write tsv from df: 'df |> CSV.write("df.tsv", delim = "\t")'
+save df as tsv: 'df |> CSV.write("df.tsv", delim = "\\t")'
 
 inner join: "innerjoin(x, y, on=:ID=>:id"
 inner join with missing: """innerjoin(x, y, on=:ID=>:id, matchmissing=:equal)"""
 
 
-f
+
 add package preserving: 
   insert("Pkg.add(, preserve=PRESERVE_DIRECT)")
   key(left:27)
@@ -220,13 +223,15 @@ at test: "@test"
 
 state enumerate: "enumerate("
 
+state occurs in: "occursin("
+state freq table: "freqtable("
 
 assert: "@assert "
 
 big arrow: " => "
 
 
-fold: "fold"
+state fold: "fold"
 
 # ggplot
 q plot: "qplot("
