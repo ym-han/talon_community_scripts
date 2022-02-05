@@ -3,15 +3,23 @@ app: Code
 
 # Annoying thing to note: the key("right:3") syntax --- can't have a space between right and 3
 -
+tag(): user.find_and_replace
+tag(): user.line_commands
+tag(): user.multiple_cursors
+tag(): user.snippets
+tag(): user.splits
+tag(): user.tabs
+#tag(): terminal
+
 comment out: key(cmd-/)
 pallete: key(cmd-shift-p)
 
 # ==== TABS
-new tab: key(cmd-n)
-tab left: app.tab_previous()
-tab right: app.tab_next()
+#new tab: key(cmd-n)
+#tab left: app.tab_previous()
+#tab right: app.tab_next()
 
-close tab: app.tab_close()
+#close tab: app.tab_close()
 reopen tab: app.tab_reopen()
 
 # ==== STRING MANIPULATION
