@@ -24,7 +24,10 @@ bar outline: user.vscode("outline.focus")
 bar run: user.vscode("workbench.view.debug")
 bar search: user.vscode("workbench.view.search")
 bar source: user.vscode("workbench.view.scm")
-bar switch: user.vscode("workbench.action.toggleSidebarVisibility")
+side dog: user.vscode("workbench.action.toggleSidebarVisibility")
+search next: user.vscode("search.action.focusNextSearchResult")
+search last: user.vscode("search.action.focusPreviousSearchResult")
+
 
 symbol hunt [<user.text>]:
     user.vscode("workbench.action.gotoSymbol")
@@ -53,7 +56,10 @@ centered switch: user.vscode("workbench.action.toggleCenteredLayout")
 fullscreen switch: user.vscode("workbench.action.toggleFullScreen")
 theme switch: user.vscode("workbench.action.selectTheme")
 word wrap: user.vscode("editor.action.toggleWordWrap")
-zen switch: user.vscode("workbench.action.toggleZenMode")
+zen toggle: user.vscode("workbench.action.toggleZenMode")
+zen mode:
+    user.vscode("workbench.action.closeSidebar")
+    user.vscode("workbench.action.closePanel")
 
 # File Commands
 file hunt [<user.text>]:
@@ -76,11 +82,19 @@ save ugly: user.vscode("workbench.action.files.saveWithoutFormatting")
 # Language Features
 suggest show: user.vscode("editor.action.triggerSuggest")
 hint show: user.vscode("editor.action.triggerParameterHints")
-definition show: user.vscode("editor.action.revealDefinition")
-definition peek: user.vscode("editor.action.peekDefinition")
-definition side: user.vscode("editor.action.revealDefinitionAside")
+def show: user.vscode("editor.action.revealDefinition")
+def peek: user.vscode("editor.action.peekDefinition")
+def side: user.vscode("editor.action.revealDefinitionAside")
 references show: user.vscode("editor.action.goToReferences")
-references find: user.vscode("references-view.find")
+ref show: user.vscode("references-view.find")
+
+ref next:
+    user.vscode("references-view.tree.focus")
+    key(down enter)
+ref prev:
+    user.vscode("references-view.tree.focus")
+    key(up enter)
+
 format that: user.vscode("editor.action.formatDocument")
 format selection: user.vscode("editor.action.formatSelection")
 imports fix: user.vscode("editor.action.organizeImports")
@@ -100,7 +114,7 @@ go back: user.vscode("workbench.action.navigateBack")
 go forward: user.vscode("workbench.action.navigateForward")
 go implementation: user.vscode("editor.action.goToImplementation")
 go type: user.vscode("editor.action.goToTypeDefinition")
-go usage: user.vscode("references-view.find")
+#go usage: user.vscode("references-view.find")
 go recent [<user.text>]:
     user.vscode("workbench.action.openRecent")
     sleep(50ms)
