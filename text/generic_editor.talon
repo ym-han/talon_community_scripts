@@ -19,6 +19,9 @@ go word right:
     edit.word_right()
     repeat(number_small - 1)
 
+step:
+    edit.word_right()
+
 [<number_small>] left:
     user.left(number_small or 1)
 
@@ -90,10 +93,10 @@ extend wester:
 extend easter:
     edit.extend_word_right()
 
-take to head:
+take head:
     edit.extend_line_start()
 
-take to tail:
+take tail:
     edit.extend_line_end()
 
 take all up:
@@ -168,7 +171,7 @@ ex right:
     edit.extend_line_end()
     edit.delete()
 
-ex up:
+ex all up:
     edit.extend_file_start()
     edit.delete()
 
