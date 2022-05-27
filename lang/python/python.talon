@@ -40,6 +40,8 @@ state raise: "raise "
 self taught: "self."
 pie test: "pytest"
 state past: "pass"
+state enumerate: "enumerate"
+
 
 state description: "descrip"
 
@@ -51,6 +53,9 @@ for index <user.text> enumerate: insert("for idx, {text} in enumerate(")
 
 raise {user.python_exception}: user.insert_cursor("raise {python_exception}([|])")
 except {user.python_exception}: "except {python_exception}:"
+
+
+dot items: ".items("
 
 dock string:
     user.code_comment_documentation()
@@ -99,9 +104,17 @@ in place equal false: "inplace=False"
 d f: "df"
 p d max rows: "pd.set_option('display.max_rows', 500)"
 p d max columns: "pd.set_option('display.max_columns', 25)"
-c s v to df: "pd.read_csv("
-t s v to df: 'pd.read_csv( , sep="\t")'
+read c s v: "pd.read_csv("
+read t s v: 
+    insert('pd.read_csv( , sep="\\t")')
+    key(left:12)
+ 
+save t s v: "to_csv(, sep='\\t', index=False)"
 
+d f people: "df_ppl"
+
+p d categorical: "pd.Categorical("
+dot assign: ".assign("
 
 dot columns: ".columns"
 dot head: ".head()"
@@ -111,9 +124,17 @@ dot tail <number>$: ".tail({number})"
 dot describe: ".describe()"
 dot info: ".info()"
 
+dot group by: ".groupby("
+
+dot iter tuples: ".itertuples()"
+
+dot to csv: ".to_csv("
+
 equal gap: " = "
 
-drop column in place: ".drop(columns='TO ADD', inplace=True)"
+dot drop duplicates: ".drop_duplicates"
+
+dot drop column in place: ".drop(columns='TO ADD', inplace=True)"
 rename column: "df.rename({"colnm": "newcolnm"}, axis=1, inplace=True)
 dot rename: ".rename("
 
@@ -219,6 +240,8 @@ dot dee type: ".dtype"
 
 dot c p u: ".cpu()"
 
+dot c p u num pie: ".cpu().numpy()"
+
 dot clone: ".detach().clone()"
 
 dot device: ".device"
@@ -269,6 +292,9 @@ torch rand n like: "torch.randn_like("
 torch normal: "torch.normal("
 torch lin space: "torch.linspace(start, end, steps)"
 
+torch L2 norm: "torch.linalg.norm("
+
+sea born lineplot: "sns.lineplot(x= , y= , label='$$')"
 
 # Initializing things
 
@@ -278,6 +304,8 @@ torch set deterministic:
     torch.backends.cudnn.benchmark = False"""
 
 device cuda if available: """device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")"""
+
+torch cuda is available: "torch.cuda.is_available()"
 
 usual learning rate: "learning_rate = 1e-4"
 usual L two: "λ_l2 = 1e-5"
