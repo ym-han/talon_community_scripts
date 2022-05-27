@@ -292,7 +292,7 @@ torch rand n like: "torch.randn_like("
 torch normal: "torch.normal("
 torch lin space: "torch.linspace(start, end, steps)"
 
-torch L2 norm: "torch.linalg.norm("
+torch L two norm: "torch.linalg.norm("
 
 sea born lineplot: "sns.lineplot(x= , y= , label='$$')"
 
