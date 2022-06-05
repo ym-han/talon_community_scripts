@@ -10,8 +10,11 @@ space qual: " = "
  
 ellipses: "..."
 
-syn arrow: "->"
-dub arrow: "=>"
+state mutex: "mtx"
+
+sym caret: "^"
+sym arrow: "->"
+sym big arrow: "=>"
 new line: "\\n"
 carriage return: "\\r"
 line feed: "\\r\\n"
