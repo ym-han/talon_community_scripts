@@ -19,7 +19,7 @@ go word right:
     edit.word_right()
     repeat(number_small - 1)
 
-step:
+steppy:
     edit.word_right()
 
 [<number_small>] left:
