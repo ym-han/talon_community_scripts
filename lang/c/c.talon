@@ -31,6 +31,14 @@ settings():
     #    user.use_stdint_datatypes = 1
 
 
+global stats: "g_dm_stats"
+
+semi: ";"
+
+dot: "."
+
+type void star: "void*"
+type size t: "size_t"
 
 ^funky <user.text>$: user.code_default_function(text)
 ^static funky <user.text>$: user.code_private_static_function(text)
@@ -53,6 +61,17 @@ state type deaf struct:
     key('tab')
 
 
+mutex lock: "mtx.lock();"
+mutex unlock: "mtx.unlock();"
+dot load: ".load()"
+
+state this: "this->"
+#this work queue: "this->work_queue"
+
+shard mutex: "shard_mtx"
+shard map: "shard_map"
+servers vector mutex: "servers_vec_mtx"
+servers vector: "servers_vec"
 # XXX - create a preprocessor tag for these, as they will match cpp, etc
 state define: "#define "
 state undefine: "#undef "
@@ -65,6 +84,8 @@ state pre else if: "#elif "
 state pre end: "#endif "
 state pragma: "#pragma "
 state default: "default:\nbreak;"
+
+state else branch: "} else {"
 
 #control flow
 #best used with a push like command
@@ -89,12 +110,17 @@ push brackets:
 <user.c_variable> <user.letter>:
     insert("{c_variable} {letter} ")
 
+# Project speciifc
+
+file struct: "struct io300_file *f"
+
+
 # Ex. (int *)
 cast to <user.c_cast>: "{c_cast}"
 standard cast to <user.stdint_cast>: "{stdint_cast}"
 type <user.c_types>: "{c_types}"
 <user.c_pointers>: "{c_pointers}"
-<user.c_keywords>: "{c_keywords}"
+state <user.c_keywords>: "{c_keywords}"
 <user.c_signed>: "{c_signed}"
 standard <user.stdint_types>: "{stdint_types}"
 int main:
@@ -105,3 +131,14 @@ toggle includes: user.code_toggle_libraries()
 include <user.code_libraries>:
     user.code_insert_library(code_libraries, "")
     key(end enter)
+
+null character: "'\\0'"
+
+name pointer: "ptr"
+
+# for C++
+null pointer: "nullptr" 
+
+
+bit shift right: ">>"   
+bit shift left: "<<"   

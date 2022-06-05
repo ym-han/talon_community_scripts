@@ -50,7 +50,7 @@ ctx.lists["self.stdint_types"] = {
     "struck": "struct",
     "num": "enum",
     "union": "union",
-    "float": "float",
+    "float": "float"
 }
 
 ctx.lists["self.c_types"] = {
@@ -67,6 +67,7 @@ ctx.lists["self.c_types"] = {
     "num": "enum",
     "union": "union",
     "float": "float",
+    "bool": "bool"
 }
 
 ctx.lists["user.code_libraries"] = {
@@ -100,16 +101,16 @@ ctx.lists["user.code_functions"] = {
     "stir en copy": "strncpy",
     "stir elle copy": "strlcpy",
     "string char": "strchr",
-    "string dupe": "strdup",
-    "stir dupe": "strdup",
+    "string dup": "strdup",
+    "stir dup": "strdup",
     "stir comp": "strcmp",
     "stir en comp": "strncmp",
     "string len": "strlen",
     "stir len": "strlen",
     "is digit": "isdigit",
     "get char": "getchar",
-    "print eff": "printf",
-    "es print eff": "sprintf",
+    "print f": "printf",
+    "es print eff": "sprintf",  
     "es en print eff": "sprintf",
     "stir to int": "strtoint",
     "stir to unsigned int": "strtouint",
@@ -245,8 +246,8 @@ class UserActions:
     def code_insert_is_null():                                  actions.auto_insert(' == NULL ')
     def code_insert_is_not_null():                              actions.auto_insert(' != NULL')
     def code_state_if():
-        actions.insert('if () {\n}\n')
-        actions.key('up:2 left:3')
+        actions.insert('if () {\n')
+        actions.key('up:1')
     def code_state_else_if():
         actions.insert('else if () {\n}\n')
         actions.key('up:2 left:3')
