@@ -1,18 +1,19 @@
-tag: terminal
-and tag: user.kubectl
+#tag: terminal
+#and tag: user.kubectl
+tag: user.kubectl
 -
-cube [control]: "kubectl "
+#cube [control]: "kubectl "
 
-cube create:         "kubectl create "
-cube expose:         "kubectl expose "
-cube run:            "kubectl run "
-cube set:            "kubectl set "
-cube run container:  "kubectl run-container "
+#cube create:         "kubectl create "
+#cube expose:         "kubectl expose "
+#cube run:            "kubectl run "
+#cube set:            "kubectl set "
+#cube run container:  "kubectl run-container "
 
-cube explain:        "kubectl explain "
-cube get:            "kubectl get "
-cube edit:           "kubectl edit "
-cube delete:         "kubectl delete "
+#cube explain:        "kubectl explain "
+#cube get:            "kubectl get "
+#cube edit:           "kubectl edit "
+#cube delete:         "kubectl delete "
 
 cube rollout:        "kubectl rollout "
 cube rolling update: "kubectl rolling-update "
@@ -20,8 +21,8 @@ cube scale:          "kubectl scale "
 cube auto scale:     "kubectl autoscale "
 
 cube certificate:    "kubectl certificate "
-cube top:            "kubectl top "
-cube drain:          "kubectl drain "
+#cube top:            "kubectl top "
+#cube drain:          "kubectl drain "
 cube taint:          "kubectl taint "
 cube (cord | cordon): "kubectl cordon "
 cube (uncord | uncordon): "kubectl uncordon "
@@ -52,17 +53,17 @@ cube (interface | API):   "kubectl api "
 cube interface resources: "kubectl api-resources "
 cube interface versions:  "kubectl api-versions "
 cube config:       "kubectl config "
-cube help:         "kubectl help "
+#cube help:         "kubectl help "
 cube plugin:       "kubectl plugin "
 cube version:      "kubectl version "
 
-cube {user.kubectl_action} [{user.kubectl_object}]:
+#cube {user.kubectl_action} [{user.kubectl_object}]:
     insert("kubectl {kubectl_action} ")
     insert(kubectl_object or "")
 
-cube detach:
+#cube detach:
     key("ctrl-p")
     key("ctrl-q")
-cube shell:
+#cube shell:
     insert("kubectl exec -it  -- /bin/bash")
     key("left:13")
