@@ -1,6 +1,6 @@
 des <number_small>: user.desktop(number_small)
-des next: user.desktop_next()
-des last: user.desktop_last()
+des right: user.desktop_next()
+des left: user.desktop_last()
 des show: user.desktop_show()
 window move des <number>: user.window_move_desktop(number)
 window move des left: user.window_move_desktop_left()
