@@ -18,8 +18,8 @@ snap <user.running_applications> <user.window_snap_position>:
 snap <user.running_applications> [screen] <number>:
     user.move_app_to_screen(running_applications, number)
 
-termy$:  
-    user.switcher_focus("Code")
+focus termy$:  
+    user.switcher_focus("Terminal")
     sleep(20ms)
 
 coder [<phrase>]$:
