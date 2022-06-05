@@ -26,7 +26,7 @@ bar search: user.vscode("workbench.view.search")
 bar source: user.vscode("workbench.view.scm")
 side dog: user.vscode("workbench.action.toggleSidebarVisibility")
 search next: user.vscode("search.action.focusNextSearchResult")
-search last: user.vscode("search.action.focusPreviousSearchResult")
+search prev: user.vscode("search.action.focusPreviousSearchResult")
 
 
 symbol hunt [<user.text>]:
@@ -99,7 +99,7 @@ format that: user.vscode("editor.action.formatDocument")
 format selection: user.vscode("editor.action.formatSelection")
 imports fix: user.vscode("editor.action.organizeImports")
 problem next: user.vscode("editor.action.marker.nextInFiles")
-problem last: user.vscode("editor.action.marker.prevInFiles")
+problem prev: user.vscode("editor.action.marker.prevInFiles")
 problem fix: user.vscode("problems.action.showQuickFixes")
 rename that: user.vscode("editor.action.rename")
 refactor that: user.vscode("editor.action.refactor")
@@ -122,10 +122,10 @@ go recent [<user.text>]:
     sleep(250ms)
     
 # Bookmarks. Requires Bookmarks plugin
-go marks: user.vscode("workbench.view.extension.bookmarks")
-toggle mark: user.vscode("bookmarks.toggle")
-go next mark: user.vscode("bookmarks.jumpToNext")
-go last mark: user.vscode("bookmarks.jumpToPrevious")
+show marks: user.vscode("workbench.view.extension.bookmarks")
+mark toggle: user.vscode("bookmarks.toggle")
+mark next: user.vscode("bookmarks.jumpToNext")
+mark prev: user.vscode("bookmarks.jumpToPrevious")
 
 # Folding
 fold that: user.vscode("editor.fold")
@@ -168,7 +168,7 @@ git unstage: user.vscode("git.unstage")
 git unstage all: user.vscode("git.unstageAll")
 pull request: user.vscode("pr.create")
 change next: key(alt-f5)
-change last: key(shift-alt-f5)
+change prev: key(shift-alt-f5)
 
 #Debugging
 break point: user.vscode("editor.debug.action.toggleBreakpoint")
@@ -186,7 +186,7 @@ debug console: user.vscode("workbench.debug.action.toggleRepl")
 term external: user.vscode("workbench.action.terminal.openNativeConsole")
 term new: user.vscode("workbench.action.terminal.new")
 term next: user.vscode("workbench.action.terminal.focusNext")
-term last: user.vscode("workbench.action.terminal.focusPrevious")
+term prev: user.vscode("workbench.action.terminal.focusPrevious")
 term split: user.vscode("workbench.action.terminal.split")
 term zoom: user.vscode("workbench.action.toggleMaximizedPanel")
 term trash: user.vscode("workbench.action.terminal.kill")
