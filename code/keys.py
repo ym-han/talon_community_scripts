@@ -182,7 +182,7 @@ symbol_key_words = {
     "starry": "*",
     "hash": "#",
     # "percent": "%",
-    "caret": "^",
+    # "caret": "^",
     # "amper": "&",
     "pipe": "|",
     "dubquote": '"',
