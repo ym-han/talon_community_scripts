@@ -199,7 +199,7 @@ transform bang: "transform!("
 
 read csv: 'df = CSV.read(fnm, DataFrame)' 
 # to do: make it use selected txt instead of `fnm`
-save df as tsv: 'df |> CSV.write("df.tsv", delim = "\\t")'
+save tsv: 'df |> CSV.write("df.tsv", delim = "\\t")'
 
 inner join: "innerjoin(x, y, on=:ID=>:id"
 inner join with missing: """innerjoin(x, y, on=:ID=>:id, matchmissing=:equal)"""
