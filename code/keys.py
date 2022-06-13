@@ -184,12 +184,11 @@ symbol_key_words = {
     # "percent": "%",
     # "caret": "^",
     # "amper": "&",
-    "pipe": "|",
+    # "pipe": "|",
     "dubquote": '"',
 
     # Currencies
     "dollar sign": "$",
-    # "pound": "£",
 }
 
 # make punctuation words also included in {user.symbol_keys}
