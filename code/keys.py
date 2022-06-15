@@ -17,7 +17,8 @@ default_f_digits = "one two three four five six seven eight nine ten eleven twel
 mod = Module()
 mod.list("letter", desc="The spoken phonetic alphabet")
 mod.list("symbol_key", desc="All symbols from the keyboard")
-mod.list("arrow_key", desc="All arrow keys")
+mod.list("saranable_key", desc="Symbols / things that can be wrapped in spaces")
+mod.list("arrow_key", desc="All keys")
 mod.list("number_key", desc="All number keys")
 mod.list("modifier_key", desc="All modifier keys")
 mod.list("function_key", desc="All function keys")
@@ -65,6 +66,12 @@ def special_key(m) -> str:
 def symbol_key(m) -> str:
     "One symbol key"
     return m.symbol_key
+
+@mod.capture(rule="{self.saranable_key}")
+def saranable_key(m) -> str:
+    "Space wrapped symbol key"
+    print(f"m is {m}\n")
+    return str(m)
 
 
 @mod.capture(rule="{self.function_key}")
@@ -161,7 +168,6 @@ symbol_key_words = {
     "lack": "[",
     "rack": "]",
     "right square": "]",
-    "slash": "/",
     "backslash": "\\",
     "minus": "-",
     "dash": "-",
@@ -191,10 +197,15 @@ symbol_key_words = {
     "dollar sign": "$",
 }
 
+
+saranable_key_words = {binding: f" {symbol} " for binding, symbol in symbol_key_words.items()}
+
 # make punctuation words also included in {user.symbol_keys}
 symbol_key_words.update(punctuation_words)
 ctx.lists["self.punctuation"] = punctuation_words
 ctx.lists["self.symbol_key"] = symbol_key_words
+ctx.lists["self.saranable_key"] = saranable_key_words
+
 ctx.lists["self.number_key"] = dict(zip(default_digits, numbers))
 ctx.lists["self.arrow_key"] = {
     "down": "down",

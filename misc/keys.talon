@@ -6,4 +6,9 @@ ship <user.letters> [(lowercase | sunk)]:
 <user.function_key>: key(function_key)
 <user.special_key>: key(special_key)
 <user.modifiers> <user.unmodified_key>: key("{modifiers}-{unmodified_key}")
+
+saran <user.saranable_key>: insert(saranable_key)
+
 press <user.modifiers>: key(modifiers)
+
+
