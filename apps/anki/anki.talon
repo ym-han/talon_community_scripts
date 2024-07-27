@@ -2,17 +2,21 @@ os: mac
 app: net.ankiweb.dtop
 -
 
+show: key(enter)
+
 add it: key(cmd-enter)
 
 new card: key(a)
 
+test again: key(1)
 was bad: key(1)
+was hard: key(2)
 was good: key(3)
 was easy: key(4)
 
 show history: key(cmd-shift-h)
 
-paste haskell: 
+paste haskell:
   key(alt-s)
   sleep(30ms)
   insert("select")
@@ -22,13 +26,13 @@ paste haskell:
   sleep(30ms)
   key(enter)
 
-paste python: 
+paste python:
   key(alt-s)
   insert("py")
   key(enter)
 
 
-make code: 
+make code:
   key(alt-s)
   sleep(20ms)
   insert("code")
@@ -36,14 +40,14 @@ make code:
   key(enter)
 
 
-paste code: 
+paste code:
   key(alt-s)
   sleep(20ms)
   insert("code")
   sleep(30ms)
   key(enter)
 
-paste c s s: 
+paste c s s:
   key(alt-s)
   sleep(20ms)
   key(down:2)
@@ -54,7 +58,7 @@ paste c s s:
 
 
 
-(paste jay | jay paste): 
+(paste jay | jay paste):
   key(alt-s)
   sleep(20ms)
   key(down:2)
@@ -63,7 +67,7 @@ paste c s s:
   insert("javascr")
   key(enter)
 
-paste j s: 
+paste j s:
   key(alt-s)
   sleep(20ms)
   key(down:2)
@@ -72,7 +76,7 @@ paste j s:
   insert("javascr")
   key(enter)
 
-paste julia: 
+paste julia:
   key(alt-s)
   sleep(20ms)
   insert("sel")
@@ -90,6 +94,7 @@ jay output: "Javascript: What will the following code output?\n\n"
 
 pref launch school: "Launch School:  "
 (pref j s | pref jay): "Javascript:  "
+pref typescript: "Typescript:  "
 pref regex: "Regex: "
 
 pref one thirty: "JS130:  "
