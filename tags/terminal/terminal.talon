@@ -6,8 +6,6 @@ cancel it: key(ctrl-c)
 
 # TEMP
 
-docker images: "docker images"
-
 
 broot: "br"
 broot details: "br -sdp\n"
@@ -15,13 +13,13 @@ broot details: "br -sdp\n"
 
 f z f: "fzf"
 pipe fuzzy: " | fzf\n"
-term hist: key(ctrl-r)  
+term hist: key(ctrl-r)
 
-then fuzz: 
+then fuzz:
     insert("**")
     key(tab)
 
-p s fuzzy: 
+p s fuzzy:
     insert("ps aux | fzf")
     key(enter)
 
@@ -32,11 +30,11 @@ vim fuzzy:
 sublime fuzzy:
     insert("subl **")
     key(tab)
-code fuzzy:
-    insert("code **")
-    key(tab)
 
 
+# ==============================
+# --- Navigation ---------------
+# ==============================
 
 # navigation
 l s: "ls"
@@ -56,8 +54,10 @@ clear screen: user.terminal_clear_screen()
 #kill all: user.terminal_kill_all()
 
 
+# ==============================
+# --- File management ----------
+# ==============================
 
-# file management
 find file: "fd -HI "
 
 move file: "mv "
@@ -68,12 +68,11 @@ we get: "wget "
 make dear: "mkdir "
 
 
-find large files: "sudo find / -size +120M -type f -exec du -h {} \; | sort -n | tail -n 50"
+find large files:
+    insert("sudo find / -size +120M -type f -exec du -h {} \\; | sort -n | tail -n 50")
 
 
-
-
-change all accessed: 
+change all accessed:
     insert("cd scratch\n")
     insert("find ./ -type f -exec touch -a {} +")
 
@@ -93,8 +92,17 @@ zee shirk: ".zshrc"
 
 git name: "ym-han\n"
 
-ripgrep: "rg "
-grep in python file: "rg tofind --type py"
+# ==========================
+# ----- Grepping  ----------
+# ==========================
+
+(grep | r g): "rg "
+grep python <user.text>: "rg {text} --type py"
+grep haskell <user.text>: "rg {text} --type hs"
+grep typescript <user.text>: "rg {text} --type ts"
+grep in python:
+    insert("rg ? --type py")
+    key(left:10)
 grep ignore case: "rg -i "
 
 grep hist: "history|rg "
@@ -105,15 +113,46 @@ pseudo a p t update: "sudo apt-get update"
 
 pseduo a p t install: "sudo apt install "
 
-# === VSCode
+# ==========================
+# ----- VSCode  ----------
+# ==========================
 
 coder folder: "code -n ."
 
+code open: "code "
+code clipped:
+    insert("code ")
+    insert(clip.text())
 
-# ==== CCLAW DSL dev related
+code fuzzy:
+    insert("code **")
+    key(tab)
+
+# ==========================
+# ----- Zed  ----------
+# ==========================
+
+zed folder: "zed -n ."
+
+zed open: "zed "
+zed clipped:
+    insert("zed ")
+    insert(clip.text())
+
+zed fuzzy:
+    insert("zed **")
+    key(tab)
+
+zed talon:
+    insert("kjt; zed -n .")
+    key(enter)
 
 
-go use cases: 
+# ==============================
+# --- CCLAW DSL dev related ----
+# ==============================
+
+go use cases:
     insert("cd /Users/ymh/Documents/Git_repos/smucclaw/usecases")
     key(enter)
 
@@ -129,7 +168,7 @@ go test spec:
     insert("cd test")
     key(enter)
 
-go l four: 
+go l four:
     insert("cdl4")
     key(enter)
 
@@ -140,22 +179,40 @@ path must sing: "test/examples/mustsing-latest.csv"
 path motor one: "test/Testcases/LogicProgram/motor-insurance-1/motor-insurance-1.csv"
 
 
-open transpiler notes: 
-    insert("code -n insurance_wiki/transpiler/natural4_to_le.md")
+make lam four extension:
+    insert("npm run langium:generate;  npm run build; vsce package --allow-missing-repository")
     key(enter)
 
+#docker logical english:
+#    insert("docker run -it -p 3050:3050  -e LOAD_KB=true -e SWISH_DAEMON_USER=root  --memory="300m" cclawdev/logicalenglish:main")
 
-docker logical english: 
-    insert("docker run -it -p 3050:3050  -e LOAD_KB=true -e SWISH_DAEMON_USER=root  --memory="300m" cclawdev/logicalenglish:main")
+
+# == CCLAW remote
+log into claw:
+    insert("ssh -Y ymhan@cclaw")
+    key(enter)
+claw g sheet: "cd /home/ymhan/repos/gsheet\n"
+claw view: "cd /home/ymhan/repos/vue-pure-pdpa\n"
+
+poetry g server:
+    insert("cd /home/ymhan/repos/gsheet/natural4-server/natural4_server/; poetry shell")
+    key(enter)
+
+run unicorn:
+    insert("cd /home/ymhan/repos/gsheet/natural4-server/natural4_server/; gunicorn wsgi:app -c  gunicorn.ym.py")
+    key(enter)
+
+# cd /home/ymhan/repos/gsheet/natural4-server/natural4_server/
+# poetry run gunicorn wsgi:app -c  gunicorn.ym.py
 
 # --------------
 
-l four run: 
+l four run:
     insert("cdl4")
     key(enter)
     insert("stack run -- --workdir=workdir ")
 
-l four motor insurance: 
+l four motor insurance:
     insert("cdl4")
     key(enter)
     insert("stack run -- --workdir=workdir /Users/ymh/Documents/Git_repos/smucclaw/dsl/lib/haskell/natural4/test/Testcases/LogicProgram/motor-insurance-1/motor-insurance-1.csv")
@@ -164,66 +221,33 @@ l four motor insurance:
 
 # -------------------------
 
-view native: 
+view native:
     insert("cdl4")
     key(enter)
     insert("code workdir/no-uuid/native/LATEST.hs")
     key(enter)
 
-view org: 
+view org:
     insert("cdl4")
     key(enter)
     insert("code workdir/no-uuid/org/LATEST.org")
     key(enter)
 
-view l e: 
+view l e:
     insert("cdl4")
     key(enter)
     insert("code workdir/no-uuid/le/LATEST.le")
     key(enter)
 
-stack build: 
-    insert("sbf")
-    key(enter)
 
-stack exec: insert("stack exec natural4-exe -- --workdir=workdir")
+stack exec natural l four:
+    insert("stack exec natural4-exe -- --workdir=workdir")
 
 
-stack build install: "stack build; stack install"
-
-stack test: 
-    insert("stf")
-    key(enter)
-
-stack haddock:
-    insert("stack haddock")
-    key(enter)
-stack hoogle gen: 
-    insert("stack hoogle -- generate --local")
-    key(enter)
-stack hoogle serve: 
-    insert("stack hoogle -- server --local --port=8080")
-    key(enter)
-stack hoogle gen serve:
-    insert("stack hoogle -- generate --local")
-    key(enter)
-    insert("stack hoogle -- server --local --port=8080")
-    key(enter)
-    
-stack targets: insert("stack ide targets")
-
-repl test: 
-    insert("stack ghci --test")
-    key(enter)
-# natural4:test:natural4-test
-
-load n l g spec: 
+load n l g spec:
     insert(":l LS.NLGSpec")
     key(enter)
 
-stack repl: 
-    insert("stack repl")
-    key(enter)
 
 # ==== CS300 related
 #go to three hundred projects: "cd *projects*\n"
@@ -235,7 +259,7 @@ stack repl:
 
 #make shardmaster: "make clean; make; make shardmaster_complex_moves\n"
 
-#three hundred project: 
+#three hundred project:
 #    insert("cd '/Users/ymh/Documents/Git_repos/cs_stuff/cs300_env/'\n")
 #    insert("./cs300-run-docker\n")
 #    insert("cd *pro*\n")
@@ -260,40 +284,88 @@ make check: "make check"
 
 #clear screen: "clear\n"
 
-
-
 g d b follow fork: "set follow-fork-mode child"
 
-# === Haskell related
+
+# ============================
+# ----- Haskell related ------
+# ============================
+
+# === Cabal
 cabal update: "cabal update"
 cabal install: "cabal install"
 cabal install lib: "cabal install --lib "
+
 cabal init: "cabal init"
 cabal help init: "cabal help init"
 cabal init interactive: "cabal init --interactive"
-cabal build: "cabal build " 
-cabal build lib: "cabal build lib:" 
-cabal build exe: "cabal build exe:" 
+
+cabal build: "cabal build "
+cabal build lib: "cabal build lib:"
+cabal build exe: "cabal build exe:"
+
 cabal repl: "cabal repl "
 cabal exec: "cabal exec "
 cabal run: "cabal run "
 cabal help: "cabal help "
 
 edit cabal: "code *.cabal"
-edit cabal in sublime: "subl *.cabal"
+edit cabal in zed: "zed *.cabal"
 
-# === JAVASCRIPT related
+# === Stack
+stack build install: "sbf; stack install"
+stack build:
+    insert("sbf")
+    key(enter)
+
+stack test:
+    insert("stf")
+    key(enter)
+
+stack haddock:
+    insert("stack haddock")
+    key(enter)
+stack hoogle gen:
+    insert("stack hoogle -- generate --local")
+    key(enter)
+stack hoogle serve:
+    insert("stack hoogle -- server --local --port=8080")
+    key(enter)
+stack hoogle gen serve:
+    insert("stack hoogle -- generate --local")
+    key(enter)
+    insert("stack hoogle -- server --local --port=8080")
+    key(enter)
+
+stack targets: insert("stack ide targets")
+
+stack repl:
+    insert("stack repl")
+    key(enter)
+
+stack repl test:
+    insert("stack ghci --test")
+    key(enter)
+# natural4:test:natural4-test
+
+
+# ============================
+# ----- Javascript related ------
+# ============================
 
 run e s lint: "npx eslint "
 
-pee build: 
+pee build:
   insert("pnpm run build")
   key(enter)
-pee run: 
+pee run:
   insert("pnpm run dev -- --open")
   key(enter)
 
-# === ENVIRONMENTS
+# ============================
+# ----- Environments ------
+# ============================
+
 make virtual environment: "virtualenv"
 #environment reel: "source ~/environments/rel/bin/activate\n"
 #environment text gen: "source ~/environments/textgen/bin/activate\n"
@@ -306,12 +378,12 @@ deactivate environment: "deactivate"
 # https://linuxize.com/post/how-to-use-linux-screen/
 
 start screen: "screen"
-new screen window: 
+new screen window:
     key(ctrl-a)
     key(c)
 # https://www.davandshy.com/creating-reattachable-ssh-sessions-with-mosh-screen/
 
-screen help: 
+screen help:
     key(ctrl-a)
     key(?)
 
@@ -321,28 +393,6 @@ screen reattach: "screen -r "
 
 
 present dir: "pwd\n"
-
-
-# == CCLAW
-log into claw: 
-    insert("ssh -Y ymhan@cclaw")
-    key(enter)
-claw g sheet: "cd /home/ymhan/repos/gsheet\n"
-claw view: "cd /home/ymhan/repos/vue-pure-pdpa\n"
-
-poetry g server:     
-    insert("cd /home/ymhan/repos/gsheet/natural4-server/natural4_server/; poetry shell")
-    key(enter)
-
-run unicorn: 
-    insert("cd /home/ymhan/repos/gsheet/natural4-server/natural4_server/; gunicorn wsgi:app -c  gunicorn.ym.py")
-    key(enter)
-
-# cd /home/ymhan/repos/gsheet/natural4-server/natural4_server/
-# poetry run gunicorn wsgi:app -c  gunicorn.ym.py
-
-
-
 
 
 # === OSCAR
@@ -355,10 +405,10 @@ request quick g p u: "interact -q gpu -t 01:00:00 -m 100g -n 1"
 
 my job info: "myjobinfo\n"
 
-oscar workspace: 
+oscar workspace:
     insert("module load python/3.7.4\n")
     insert("module load julia/1.7.2\n")
-    insert("cd /users/yh31/scratch/\n")  
+    insert("cd /users/yh31/scratch/\n")
 
 oscar gpt workspace:
     insert("module load zstd\n")
@@ -371,26 +421,26 @@ oscar gpt workspace:
 eye python: "ipython3"
 eye python three: "ipython3"
 
-lipreading workspace:
-    insert("module load python/3.7.4\n")
-    insert("module load libjpeg-turbo/2.0.2\n")
-    insert("cd /users/yh31/scratch/projects/lip/\n")  
+#lipreading workspace:
+#    insert("module load python/3.7.4\n")
+#    insert("module load libjpeg-turbo/2.0.2\n")
+#    insert("cd /users/yh31/scratch/projects/lip/\n")
 
-python workspace: 
+python workspace:
     insert("module load python/3.7.4\n")
     insert("source ~/environments/rel/bin/activate\n")
     insert("cd /users/yh31/scratch/projects/sr-nlp/data_gathering/source/making_data/prepping-raw-data\n")
 
 
 
-go to cleaned files: "cd /users/yh31/scratch/datasets/entity_linking/cleaned\n"
-go to slurm scripts: "cd /users/yh31/scratch/projects/embed_exp/slurm_scripts\n"
+#go to cleaned files: "cd /users/yh31/scratch/datasets/entity_linking/cleaned\n"
+#go to slurm scripts: "cd /users/yh31/scratch/projects/embed_exp/slurm_scripts\n"
 #go to oscar config: "cd cd_lstm_joulin_SAT_night_lower_wt_decay_and_dropout.xml\n"
 
-go to embedding scripts: "cd /users/yh31/scratch/projects/embed_exp\n"
-go to sense ref scripts: "cd /users/yh31/scratch/projects/sr_neural/scripts/etl/nyt\n"
-go to text gen: "cd /users/yh31/scratch/projects/sr_neural/scripts/\n"
-go to lip data: "cd /users/yh31/scratch/projects/lip/data\n"
+#go to embedding scripts: "cd /users/yh31/scratch/projects/embed_exp\n"
+#go to sense ref scripts: "cd /users/yh31/scratch/projects/sr_neural/scripts/etl/nyt\n"
+#go to text gen: "cd /users/yh31/scratch/projects/sr_neural/scripts/\n"
+#go to lip data: "cd /users/yh31/scratch/projects/lip/data\n"
 
 # === CONDA
 
@@ -436,7 +486,7 @@ download from bucket: "gsutil cp gs://coref_gpt/OBJECT_NAME SAVE_TO_LOCATION"
 
 # === VIM related
 
-vim replace paste: 
+vim replace paste:
     insert("gg")
     sleep(1ms)
     insert("dG")
@@ -449,7 +499,7 @@ vim replace paste:
     key(cmd-v)
 
 
-vim save it: 
+vim save it:
     key(esc)
     sleep(1ms)
     insert(":x")
@@ -459,7 +509,7 @@ snip line:
     key(esc)
     insert("dd")
 
-vim nope that: 
+vim nope that:
     key(esc)
     insert("u")
     key(enter)
@@ -468,7 +518,7 @@ vim quit no save:
     key(esc)
     insert(":q!")
 
-vim go <number>: 
+vim go <number>:
   key(esc)
   insert("{number}")
   key(shift-g)
@@ -480,7 +530,7 @@ go to emacs dir: "cd /Users/ymh/.emacs.d\n"
 doom upgrade: "~/.emacs.d/bin/doom upgrade"
 doom update: "~/.emacs.d/bin/doom sync -u"
 doom sync: "~/.emacs.d/bin/doom sync\n"
-    
+
 doom doctor: "~/.emacs.d/bin/doom doctor"
 
 
@@ -488,5 +538,3 @@ run last: user.terminal_run_last()
 #rerun [<user.text>]: user.terminal_rerun_search(text or "")
 rerun search: user.terminal_rerun_search("")
 #kill all: user.terminal_kill_all()
-
-
