@@ -1,7 +1,11 @@
 control mouse legacy: tracking.control1_toggle()
 control mouse: tracking.control_toggle()
+
+key(cmd-alt-shift-h): tracking.control_toggle()
+
 mouse off: user.mouse_sleep()
 mouse on: user.mouse_wake()
+
 zoom mouse: tracking.control_zoom_toggle()
 camera overlay: tracking.control_debug_toggle()
 calibrate mouse: tracking.calibrate()
@@ -68,7 +72,7 @@ drag it:
     user.zoom_close()
 
     user.mouse_drag(0)
-    
+
     # close the mouse grid
     user.grid_close()
 
