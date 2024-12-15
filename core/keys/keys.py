@@ -163,17 +163,11 @@ punctuation_words = {
     "for slash": "/",
     "questo": "?",
     "exclaimation": "!",
-    "sym hash": "#",
     # "number sign": "#",
     "at sign": "@",
 
     "sym percent": "%",
     "sym amp": "&",
-
-    "sym lambda": "λ",
-    "sym gamma": "Γ",
-    "sym member of": "∈",
-    "sym small gamma": "γ"
 }
 symbol_key_words = {
     # "point": ".",
@@ -181,8 +175,9 @@ symbol_key_words = {
     "rack": "]",
     "r square": "]",
     "backslash": "\\",
+    "plus": "+",
     "minus": "-",
-    "dash": "-",
+    "dasher": "-",
     "equals": "=",
     # "grave": "`",
     "tilde": "~",
@@ -194,9 +189,13 @@ symbol_key_words = {
     "R brace": "}",
 
     "sym quote": "'",
-    "sym plus": "+",
     "sym angle": "<",
     "sym rangle": ">",
+    "sym hash": "#",
+    "sym lambda": "λ",
+    "sym gamma": "Γ",
+    "sym member of": "∈",
+    "sym small gamma": "γ",
 
     "smaller than": "<",
     "greater than": ">",
@@ -214,13 +213,14 @@ symbol_key_words = {
 
 
 only_for_saran = {
-    "big arrow":   "=>",
-    "arrow":       "->",
-    "not equal":   "!=",
-    "pipe":        "|",
-    "dollar":      "$",
-    "em dash":     "---",
-    "starry":      "*"
+    "big arrow":      "=>",
+    "arrow":          "->",
+    "reversed arrow": "<-",
+    "not equal":      "!=",
+    "pipe":           "|",
+    "dollar":         "$",
+    "em dash":        "---",
+    "starry":         "*"
 }
 
 
