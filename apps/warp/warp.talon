@@ -35,6 +35,9 @@ please [<user.text>]:
     key(cmd-p)
     insert(user.text or "")
 
+block rerun:
+    key(cmd-i)
+
 block up:
     key(cmd-up)
 
