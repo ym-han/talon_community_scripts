@@ -31,3 +31,11 @@ go anki talon:
     insert("editor: reveal in file manager")
     sleep(0.05)
     key(enter)
+
+soft wrap:
+    key(cmd-shift-p)
+    insert("editor soft wrap")
+    key(enter)
+
+include file:
+  insert("/file ")
