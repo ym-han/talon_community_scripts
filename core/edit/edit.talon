@@ -3,20 +3,20 @@
 
 
 
-# Find 
+# Find
 scout it: edit.find()
 
 scout next: edit.find_next()
 scout prev: edit.find_previous()
 
 
-# Save 
+# Save
 
 save it: edit.save()
 file save all: edit.save_all()
 
 
-# Undo/Redo 
+# Undo/Redo
 
 nope that: edit.undo()
 redo: edit.redo()
@@ -32,16 +32,14 @@ redo: edit.redo()
     edit.word_right()
     repeat(number_small - 1)
 
-
 goal: edit.left()
 gore: edit.right()
 
 goop: edit.up()
 gown: edit.down()
 
-
 moon: edit.word_left()
-step: edit.word_right()
+steppy: edit.word_right()
 
 head: edit.line_start()
 tail: edit.line_end()
@@ -66,7 +64,7 @@ zoom out: edit.zoom_out()
 slurp: edit.line_insert_up()
 pour: edit.line_insert_down()
 
-dup line: edit.line_clone()
+# dup line: edit.line_clone()
 dup it: edit.selection_clone()
 
 
@@ -109,7 +107,7 @@ indent it: edit.indent_more()
 out dent: edit.indent_less()
 
 
-# Delete 
+# Delete
 
 wipe gore:
     edit.right()
