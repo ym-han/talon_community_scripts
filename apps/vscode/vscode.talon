@@ -25,6 +25,8 @@ please [<user.text>]:
     user.vscode("workbench.action.showCommands")
     insert(user.text or "")
 
+restart extension host: user.vscode("workbench.action.restartExtensionHost")
+
 go view [<user.text>]:
     user.vscode("workbench.action.openView")
     insert(user.text or "")
@@ -254,7 +256,11 @@ git stage all: user.vscode("git.stageAll")
 git sync: user.vscode("git.sync")
 git unstage: user.vscode("git.unstage")
 git unstage all: user.vscode("git.unstageAll")
-pull request: user.vscode("pr.create")
+
+# (wreck | rec) make: user.vscode("pr.create")
+# (wreck | rec) show: user.vscode("prStatus:github.focus")
+(wreck | rec) web: user.vscode("gitlens.openAssociatedPullRequestOnRemote")
+# pull request: user.vscode("pr.create")
 # Use keyboard shortcuts because VSCode relies on when clause contexts to choose the appropriate
 # action: https://code.visualstudio.com/api/references/when-clause-contexts
 change next: key(alt-f5)
