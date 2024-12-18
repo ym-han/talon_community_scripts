@@ -2,7 +2,7 @@ tag: terminal
 -
 # tags should be activated for each specific terminal in the respective talon file
 
-cancel it: key(ctrl-c)
+cancel: key(ctrl-c)
 
 # TEMP
 
@@ -37,14 +37,14 @@ sublime fuzzy:
 # ==============================
 
 # navigation
-l s: "ls"
+l s: "ls\n"
 lisa hidden: "ls -lah\n"
 lisa: user.terminal_list_directories()
 lisa all: user.terminal_list_all_directories()
 
 cd [dir] [<user.text>]: user.terminal_change_directory(text or "")
 cd root: user.terminal_change_directory_root()
-cd up: "cd ..\n"
+go parent: "cd ..\n"
 cd back: "cd -\n"
 #user.terminal_change_directory("..")
 
@@ -92,6 +92,9 @@ zee shirk: ".zshrc"
 
 git name: "ym-han\n"
 
+
+find non kebab case: 'fd --no-ignore "[^a-z0-9-]|^-|-$|--"'
+
 # ==========================
 # ----- Grepping  ----------
 # ==========================
@@ -112,6 +115,14 @@ sublime: "subl "
 pseudo a p t update: "sudo apt-get update"
 
 pseduo a p t install: "sudo apt install "
+
+
+# ============================
+# ----- LLM ------------------
+# ============================
+
+aider gemini: "aider --model openrouter/google/gemini-flash-1.5 "
+aider claude: "aider --model openrouter/anthropic/claude-3.5-sonnet"
 
 # ==========================
 # ----- VSCode  ----------
@@ -147,6 +158,10 @@ zed talon:
     insert("kjt; zed -n .")
     key(enter)
 
+go talon user: "cd ~/.talon/user"
+go rango talon: "cd ~/.talon/rango"
+
+go community talon: "cd ~/.talon/knausj_talon"
 
 # ==============================
 # --- CCLAW DSL dev related ----
@@ -156,27 +171,60 @@ go use cases:
     insert("cd /Users/ymh/Documents/Git_repos/smucclaw/usecases")
     key(enter)
 
-go test cases:
-    insert("cdl4")
+# go test cases:
+#     insert("cdl4")
+#     key(enter)
+#     insert("cd test/Testcases")
+#     key(enter)
+
+go sim ma la:
+    insert("cd ~/Documents/Git_repos/smucclaw/simala")
     key(enter)
-    insert("cd test/Testcases")
+    insert("code -n .")
     key(enter)
 
-go test spec:
-    insert("cdl4")
+go lam four backend:
+    insert("cd /Users/ymh/Documents/Git_repos/smucclaw/lam4/lam4-backend")
     key(enter)
-    insert("cd test")
+    insert("code -n .")
     key(enter)
+
+go lam four frontend:
+    insert("cd /Users/ymh/Documents/Git_repos/smucclaw/lam4/lam4-frontend")
+    key(enter)
+    insert("code -n .")
+    key(enter)
+
+build frontend:
+    insert("cd /Users/ymh/Documents/Git_repos/smucclaw/lam4/lam4-frontend")
+    key(enter)
+    insert(" npm run langium:generate; npm run build")
+    key(enter)
+
+rebuild extension:
+    insert("cd /Users/ymh/Documents/Git_repos/smucclaw/lam4/lam4-frontend")
+    key(enter)
+    insert("./rebuild-vscode-ext.sh")
+    key(enter)
+    insert("cd -")
+    key(enter)
+
+
+# go test spec:
+#     insert("cdl4")
+#     key(enter)
+#     insert("cd test")
+#     key(enter)
 
 go l four:
     insert("cdl4")
     key(enter)
 
-check most recent testcase: insert("l4rectest; subl workdir/no-uuid/le/LATEST.le")
+# check most recent testcase: insert("l4rectest; subl workdir/no-uuid/le/LATEST.le")
 
-path must sing: "test/examples/mustsing-latest.csv"
+# path must sing: "test/examples/mustsing-latest.csv"
 
-path motor one: "test/Testcases/LogicProgram/motor-insurance-1/motor-insurance-1.csv"
+# path motor one: "test/Testcases/LogicProgram/motor-insurance-1/motor-insurance-1.csv"
 
 
 make lam four extension:
@@ -293,14 +341,17 @@ g d b follow fork: "set follow-fork-mode child"
 
 # === Cabal
 cabal update: "cabal update"
-cabal install: "cabal install"
+cabal install: "cabal install --overwrite-policy=always"
+cabal install all: "cabal install all --overwrite-policy=always"
 cabal install lib: "cabal install --lib "
 
 cabal init: "cabal init"
 cabal help init: "cabal help init"
 cabal init interactive: "cabal init --interactive"
 
-cabal build: "cabal build "
+cabal build:
+    insert("cabal build -fast")
+    key(enter)
 cabal build lib: "cabal build lib:"
 cabal build exe: "cabal build exe:"
 
@@ -362,6 +413,17 @@ pee run:
   insert("pnpm run dev -- --open")
   key(enter)
 
+pee check:
+    insert("pnpm run check")
+    key(enter)
+
+# ============================
+# ----- Nix related     ------
+# ============================
+
+nix shell: "nix-shell "
+exit nix shell: key(ctrl-D)
+
 # ============================
 # ----- Environments ------
 # ============================
@@ -392,7 +454,7 @@ screen lisa: "screen -ls\n"
 screen reattach: "screen -r "
 
 
-present dir: "pwd\n"
+print dir: "pwd\n"
 
 
 # === OSCAR
