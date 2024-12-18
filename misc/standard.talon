@@ -1,4 +1,6 @@
-wait: sleep(400ms)
+waiting: sleep(400ms)
+
+state to do: "TODO: "
 
 # homerow
 ^mouser [<user.text>]:
@@ -15,6 +17,7 @@ pref haskell: "Haskell: "
 pref yak shaving: "Yak shaving: "
 pref talon binding: "Talon voice binding:\n"
 pref rango binding: "Talon voice binding -- Rango:\n"
+
 tag rango talon: "rango-talon"
 
 co authored joesy: "Co-authored-by: johsi-k <johsi.k@gmail.com>"
@@ -22,7 +25,6 @@ co authored joesy: "Co-authored-by: johsi-k <johsi.k@gmail.com>"
 
 talon log path: "/Users/ymh/.talon/talon.log"
 sublime talon log: "subl /Users/ymh/.talon/talon.log"
-
 
 slow mode: mode.enable("user.slow")
 fast mode: mode.disable("user.slow")
@@ -34,9 +36,7 @@ witcher: key(ctrl-space)
 
 paste match: edit.paste_match_style()
 
-
 screen area: key(cmd-ctrl-shift-4)
-
 
 padder:
   insert("  ")
@@ -63,4 +63,7 @@ word sub read it: "subreddit"
 
 #<phrase>: skip()
 
-
+slash <user.text>:
+    insert("/")
+    insert(text)
+    insert(" ")
