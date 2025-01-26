@@ -50,24 +50,17 @@ settings():
     user.command_history_display = 10
 
     # Set the total number of command history lines to display
-    user.command_history_size = 50
+    user.command_history_size = 30
 
     # Uncomment the below to insert text longer than 10 characters (customizable) by
     # pasting from the clipboard. This is often faster than typing.
     user.paste_to_insert_threshold = 10
 
-    # Uncomment the below to enable context-sensitive dictation. This determines
-    # how to format (capitalize, space) dictation-mode speech by selecting &
-    # copying surrounding text before inserting. This can be slow and may not
-    # work in some applications. You may wish to enable this on a
-    # per-application basis.
-    user.context_sensitive_dictation = 1
-
     # Uncomment to enable context-sensitive dictation. This determines how to format
     # (capitalize, space) dictation-mode speech by selecting & copying surrounding text
     # before inserting. This can be slow and may not work in some applications. You may
     # wish to enable this on a per-application basis.
-    # user.context_sensitive_dictation = true
+    user.context_sensitive_dictation = true
 
     # Choose how to resize windows moved across physical screens (eg. via `snap next`).
     # Default is 'proportional', which preserves window size : screen size ratio.
@@ -78,11 +71,9 @@ settings():
     # Puts Talon into sleep mode if no commands are spoken for a defined period of time.
     # user.listening_timeout_minutes = 3
 
-# Uncomment this to enable the curse yes/curse no commands (show hide mouse cursor). See issue #688.
-tag(): user.mouse_cursor_commands_enable
 # Uncomment to enable the curse yes/curse no commands (show/hide mouse cursor).
 # See issue #688 for more detail: https://github.com/talonhub/community/issues/688
-# tag(): user.mouse_cursor_commands_enable
+tag(): user.mouse_cursor_commands_enable
 
 # Uncomment the below to disable support for saying numbers without a prefix.
 # By default saying "one" would write "1", however many users find this behavior
