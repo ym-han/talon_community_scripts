@@ -1,3 +1,4 @@
+import re
 from talon import Context, Module, actions, app, ui
 
 ctx = Context()
@@ -49,7 +50,7 @@ class Actions:
                 f"{len(matching_windows)} windows matched '{title}",
                 ", ".join([w.title for w in matching_windows]),
             )
-            
+
 
 ui.register("win_open", lambda _: actions.user.update_window_titles())
 ui.register("win_close", lambda _: actions.user.update_window_titles())
