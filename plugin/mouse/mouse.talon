@@ -143,9 +143,6 @@ scroll tiny right here:
     user.mouse_scroll_right(0.5)
 
 copy mouse position: user.copy_mouse_position()
-#curse no:
-    # Command added 2021-12-13, can remove after 2022-06-01
-    app.notify("Please activate the user.mouse_cursor_commands_enable tag to enable this command")
 
 # To scroll with a hiss sound, set mouse_enable_hiss_scroll to true in settings.talon
 #mouse hiss up: user.hiss_scroll_up()

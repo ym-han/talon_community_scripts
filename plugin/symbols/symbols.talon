@@ -1,8 +1,13 @@
-new line: "\n"
-double dash: "--"   
-triple dash: "--"     
+# new line: "\n"
+double dash: "--"
+triple dash: "--"
 triple quote: "'''"
-(triple grave | triple back tick | gravy): insert("```")
+(code block | triple back tick): insert("```\n")
+code block lam four: insert("```lam4\n")
+code block haskell: insert("```haskell\n")
+code block javascript: insert("```javascript\n")
+code block typescript: insert("```typescript\n")
+
 (dot dot | dotdot): ".."
 ellipses: "..."
 semi space: "; "
@@ -10,6 +15,7 @@ semi space: "; "
 coalgap: ": "
 spamma: ", "
 
+sym reversed arrow: "<-"
 sym arrow: "->"
 sym dub arrow: "=>"
 
@@ -104,15 +110,15 @@ slider:
 breaker:
     edit.line_end()
     insert(" {")
-    key(enter) 
+    key(enter)
 
 end gap:
     edit.line_end()
     key(space)
-    
+
 
 # Legacy: not sure if need these
-arg wrap: 
+arg wrap:
   edit.line_start()
   insert("(")
   edit.line_end()
@@ -124,8 +130,8 @@ arg wrap:
   edit.line_end()
   insert("`")
 
-brace wrap: 
+brace wrap:
   edit.line_start()
   insert("{")
   edit.line_end()
-  insert("}")      
+  insert("}")
