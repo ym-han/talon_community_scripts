@@ -10,9 +10,9 @@ phrase <user.text> over:
 <user.format_code>+$: user.insert_many(format_code_list)
 <user.format_code>+ over: user.insert_many(format_code_list)
 <user.formatters> (that | this): user.formatters_reformat_selection(user.formatters)
-<user.formatters> head: 
-    edit.extend_line_start()
-    user.formatters_reformat_selection(user.formatters)
+# <user.formatters> head:
+#     edit.extend_line_start()
+#     user.formatters_reformat_selection(user.formatters)
 word <user.word>:
     user.add_phrase_to_history(word)
     insert(word)
