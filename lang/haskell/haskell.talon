@@ -1,4 +1,4 @@
-tag: user.haskell
+code.language: haskell
 -
 tag(): user.code_function
 tag(): user.code_library
@@ -13,7 +13,7 @@ settings():
 
 dot hs: ".hs"
 
-pragma ghc wall: "{{-# OPTIONS_GHC -Wall #-}}"
+pragma wall: "{{-# OPTIONS_GHC -Wall #-}}"
 # enables all warnings
 
 common pragmas: "{{-# LANGUAGE LambdaCase, GeneralizedNewtypeDeriving, OverloadedStrings, TypeApplications, ExistentialQuantification, UnicodeSyntax, NegativeLiterals, ImportQualifiedPost #-}}"
@@ -31,63 +31,25 @@ pragma stand alone deriving: "{{-# LANGUAGE StandaloneDeriving #-}}"
 set type applications: ":set -XTypeApplications\n"
 set print for all: ":set -fprint-explicit-foralls\n"
 
-module where:
+state module where:
     insert("module  where")
     key(left:6)
+state import: "import "
 
-
-import text: "import Data.Char qualified as Char\nimport Data.Text qualified as T\n"
+import text: "import Data.Text (Text)\nimport Data.Text qualified as T\n"
 import data map: "import qualified Data.Map as M"
 
 haddock block: "{- |\n -}"
 haddock comment: "-- | "
 modulo: " mod "
 
-slash case: insert("\case")
+slash case: insert("\\case")
 
 and then: "& "
 
 
 # ---------------------------- just for LE transpilation project
 print rules$: "prl "
-
-print indent:
-    insert('pRules leTestcasesDir "indentation-databreach.csv"')
-    key(enter)
-
-print parent:
-    insert('pRules leTestcasesDir "parentchild-without-period.csv"')
-    key(enter)
-
-print simple sum:
-    insert('"pRules leTestcasesDir "simple-sum.csv"')
-    key(enter)
-
-print multi:
-    insert('prl "rpnary-and.csv"')
-    key(enter)
-
-print and not:
-    insert('prl "and-not.csv"')
-    key(enter)
-
-print product:
-    insert('prl "product.csv"')
-    key(enter)
-
-print with numbers:
-    insert('prl "with-numbers.csv"')
-    key(enter)
-
-print max where:
-    insert('prl "is-max-where.csv"')
-    key(enter)
-
-
-
-load logical:
-    insert(":l LS.XPile.LogicalEnglish.LogicalEnglish")
-    key(enter)
 
 
 
@@ -120,7 +82,7 @@ type list:
 
 
 # equivalent of snippet "annotated expression"
-has type$: " :: "
+has type: " :: "
 ## TO DO for future: too tired to do this properly right now
 
 #has type <user.code_type>: " :: {code_type}"
@@ -130,6 +92,7 @@ has type$: " :: "
 #into {user.code_type}:
 #    user.insert_cursor(" -> {code_type}[|]")
 
+state module: "module"
 
 state let: "let "
 
@@ -151,11 +114,27 @@ state lift: "lift "
 state maybe tee: "MaybeT"
 state either tee: "EitherT"
 state reader tee: "ReaderT"
+state i o: "IO"
+state i o unit: "IO ()"
+
+state do:
+    insert("do")
+    key(esc)
+    key(enter)
 
 state return: "return "
 
-state pure: "pure "
+state pure: "pure"
 
 state set of: "setOf "
 
 state folded: "folded "
+
+fun app: " $ "
+
+optics compose: "% "
+
+state deriving default: "deriving stock (Eq, Ord, Show, Generic)"
+
+# in cabal repl you don't want to :load things, cabal is already doing that for you. To import a loaded module in GHCi and access all the internal definitions and imports you can do :m + *MyModule.
+scope module: insert(":m + *")
