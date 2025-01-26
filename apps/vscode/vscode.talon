@@ -47,12 +47,12 @@ bar collapse: user.vscode("workbench.files.action.collapseExplorerFolders")
 
 
 # Symbol search
-symbol search [<user.text>]:
+symbol scout [<user.text>]:
     user.vscode("workbench.action.gotoSymbol")
     sleep(50ms)
     insert(text or "")
 
-symbol search all [<user.text>]:
+symbol scout all [<user.text>]:
     user.vscode("workbench.action.showAllSymbols")
     sleep(50ms)
     insert(text or "")
@@ -336,7 +336,7 @@ full screen: user.vscode("workbench.action.toggleFullScreen")
 
 curse undo: user.vscode("cursorUndo")
 curse redo: user.vscode("cursorRedo")
-hints tog: user.vscode("cursorless.toggleDecorations")
+hint tog: user.vscode("cursorless.toggleDecorations")
 
 
 select word: user.vscode("editor.action.addSelectionToNextFindMatch")
