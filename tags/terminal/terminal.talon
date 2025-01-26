@@ -400,11 +400,41 @@ stack repl test:
 # natural4:test:natural4-test
 
 
-# ============================
+# ===============================
 # ----- Javascript related ------
-# ============================
+# ===============================
 
 run e s lint: "npx eslint "
+
+# ----- npm  ----------
+
+state corepack: "corepack"
+
+npm test:
+  insert("corepack npm run test")
+  key(enter)
+
+npm check:
+  insert("corepack npm run check")
+  key(enter)
+
+npm ci build:
+  insert("corepack npm ci; corepack npm run build")
+  key(enter)
+
+npm clean install:
+  insert("corepack npm ci")
+  key(enter)
+
+npm build:
+  insert("corepack npm run build")
+  key(enter)
+
+npm format:
+  insert("corepack npm run format")
+  key(enter)
+
+# ----- pnpm ----------
 
 pee build:
   insert("pnpm run build")
@@ -417,6 +447,18 @@ pee check:
     insert("pnpm run check")
     key(enter)
 
+pee prepare:
+    insert("pnpm prepare")
+    key(enter)
+
+pee test:
+    insert("pnpm test")
+    key(enter)
+
+pee format:
+    insert("pnpm format")
+    key(enter)
+
 # ============================
 # ----- Nix related     ------
 # ============================
@@ -427,6 +469,10 @@ exit nix shell: key(ctrl-D)
 # ============================
 # ----- Environments ------
 # ============================
+
+(shay cd | go dotfiles): "chezmoi cd"
+shay apply: "chezmoi apply -v"
+shay diff:  "chezmoi diff"
 
 make virtual environment: "virtualenv"
 #environment reel: "source ~/environments/rel/bin/activate\n"
@@ -600,3 +646,19 @@ run last: user.terminal_run_last()
 #rerun [<user.text>]: user.terminal_rerun_search(text or "")
 rerun search: user.terminal_rerun_search("")
 #kill all: user.terminal_kill_all()
+
+go waddington:
+    insert("cd ~/_git/smucclaw/mattwaddington")
+    key(enter)
+
+install lsp:
+    insert("cabal install exe:jl4-lsp --overwrite-policy=always")
+    key(enter)
+
+extension:
+    insert("code --uninstall-extension smucclaw.jl4-lsp-client; rm *.vsix; npm run package")
+    key(enter)
+
+install extension:
+    insert("code --install-extension *.vsix")
+    key(enter)
