@@ -1,5 +1,6 @@
 waiting: sleep(400ms)
 
+state decl: "decl"
 state to do: "TODO: "
 
 # homerow
