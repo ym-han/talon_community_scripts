@@ -7,6 +7,7 @@ tag(): user.splits
 tag(): user.tabs
 tag(): terminal
 
+menu: key(cmd-p)
 
 please [<user.text>]:
     key(cmd-shift-p)
@@ -37,5 +38,33 @@ soft wrap:
     insert("editor soft wrap")
     key(enter)
 
-include file:
+
+help here:        key(ctrl-enter)
+assist panel:     key(cmd-r)
+
+with quote:       key(cmd->)
+
+search all files: key(cmd-shift-f)
+
+
+# Slash commands
+(add | slash) file:
+    insert("/file ")
+
+(add | slash) diagnostics:
+    insert("/diagnostics ")
+
+(add | slash) prompt:
+    insert("/prompt ")
+
+slash fetch:
+    insert("/fetch ")
+
+# Make shift prompts
+what does copied do:
   insert("/file ")
+  key(enter)
+  key(enter)
+  insert("What does ")
+  insert(clip.text())
+  insert(" do?")
