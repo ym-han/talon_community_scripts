@@ -1,3 +1,4 @@
+
 app: warp
 -
 # makes the commands in generic_terminal available
@@ -29,7 +30,13 @@ search hist [<user.text>]:
     key(ctrl-r)
     insert(text or "")
 
-ask ai: key(ctrl-.)
+ask ai: key(ctrl-`)
+
+accept query:
+    key(shift-cmd-enter)
+
+accept suggestion:
+    key(cmd-ctrl-`)
 
 please [<user.text>]:
     key(cmd-p)
@@ -74,4 +81,3 @@ split down:
 
 split max:
     key(cmd-shift-enter)
-
