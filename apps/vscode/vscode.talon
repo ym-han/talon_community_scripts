@@ -393,3 +393,10 @@ copy command id:            user.copy_command_id()
 
 install extension: user.vscode("workbench.extensions.action.installVSIX")
 preview markdown: user.vscode("markdown.showPreview")
+
+# From https://github.com/cursorless-dev/cursorless/wiki/Common-recommendations
+then: skip()
+
+{user.search_engine} scout <user.cursorless_target>:
+    text = user.cursorless_get_text(cursorless_target)
+    user.search_with_search_engine(search_engine, text)
