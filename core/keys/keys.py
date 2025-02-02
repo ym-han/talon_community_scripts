@@ -4,7 +4,7 @@ mod = Module()
 mod.list("letter", desc="The spoken phonetic alphabet")
 mod.list("symbol_key", desc="All symbols from the keyboard")
 mod.list("saranable_key", desc="Symbols / things that can be wrapped in spaces")
-mod.list("arrow_key", desc="All keys")
+mod.list("arrow_key", desc="All arrow keys")
 mod.list("number_key", desc="All number keys")
 mod.list("modifier_key", desc="All modifier keys")
 mod.list("function_key", desc="All function keys")
@@ -202,16 +202,9 @@ saranable_key_words.update( {binding: f" {symbol} " for binding, symbol in only_
 symbol_key_words.update(punctuation_words)
 ctx.lists["self.punctuation"] = punctuation_words
 ctx.lists["self.symbol_key"] = symbol_key_words
-ctx.lists["self.number_key"] = {name: str(i) for i, name in enumerate(digits)}
-ctx.lists["self.arrow_key"] = {
-    "down": "down",
-    "left": "left",
-    "right": "right",
-    "up": "up",
-}
-
 ctx.lists["self.saranable_key"] = saranable_key_words
 
+# ------- TODO Feb 2 merge update: Not sure if we need the following ---- #
 
 simple_keys = [
     # "end",
@@ -235,25 +228,25 @@ alternate_keys = {
     "page down": "pagedown",
     "lap": "enter",
 }
-# mac apparently doesn't have the menu key.
-if app.platform in ("windows", "linux"):
-    alternate_keys["menu key"] = "menu"
-    alternate_keys["print screen"] = "printscr"
+# # mac apparently doesn't have the menu key.
+# if app.platform in ("windows", "linux"):
+#     alternate_keys["menu key"] = "menu"
+#     alternate_keys["print screen"] = "printscr"
 
-special_keys = {k: k for k in simple_keys}
-special_keys.update(alternate_keys)
-ctx.lists["self.special_key"] = special_keys
-ctx.lists["self.function_key"] = {
-    f"F {name}": f"f{i}" for i, name in enumerate(f_digits, start=1)
-}
+# special_keys = {k: k for k in simple_keys}
+# special_keys.update(alternate_keys)
+# ctx.lists["self.special_key"] = special_keys
+# ctx.lists["self.function_key"] = {
+#     f"F {name}": f"f{i}" for i, name in enumerate(f_digits, start=1)
+# }
 
 
-@mod.action_class
-class Actions:
-    def move_cursor(s: str):
-        """Given a sequence of directions, eg. 'left left up', moves the cursor accordingly using edit.{left,right,up,down}."""
-        for d in s.split():
-            if d in ("left", "right", "up", "down"):
-                getattr(actions.edit, d)()
-            else:
-                raise RuntimeError(f"invalid arrow key: {d}")
+# @mod.action_class
+# class Actions:
+#     def move_cursor(s: str):
+#         """Given a sequence of directions, eg. 'left left up', moves the cursor accordingly using edit.{left,right,up,down}."""
+#         for d in s.split():
+#             if d in ("left", "right", "up", "down"):
+#                 getattr(actions.edit, d)()
+#             else:
+#                 raise RuntimeError(f"invalid arrow key: {d}")
