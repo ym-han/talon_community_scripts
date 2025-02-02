@@ -2,6 +2,10 @@
 # inspired also by Wen Kokke's version (https://github.com/wenkokke/talon-user/blob/78bf5c91333d628481e8f386ff3f454b224c6402/core/edit/edit.talon#L146)
 
 
+# Compound of action(select, clear, copy, cut, paste, etc.) and modifier(word, line, etc.) commands for editing text.
+# eg: "select line", "clear all"
+<user.edit_action> <user.edit_modifier>: user.edit_command(edit_action, edit_modifier)
+
 
 # Find
 scout it: edit.find()
@@ -56,7 +60,7 @@ tailor: edit.file_end()
 
 zoom in: edit.zoom_in()
 zoom out: edit.zoom_out()
-
+zoom reset: edit.zoom_reset()
 
 
 # Insert
@@ -76,6 +80,10 @@ cork none: edit.select_none()
 grab up: edit.extend_up()
 grab down: edit.extend_down()
 
+# go left, go left left down, go 5 left 2 down
+# go word left, go 2 words right
+go <user.navigation_step>+: user.perform_navigation_steps(navigation_step_list)
+
 grab left: edit.extend_left()
 grab right: edit.extend_right()
 
@@ -89,7 +97,6 @@ grab (step | word right): edit.extend_word_right()
 
 
 select all: edit.select_all()
-
 
 select up: edit.extend_line_up()
 select down: edit.extend_line_down()

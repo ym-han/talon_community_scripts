@@ -6,7 +6,8 @@ tag(): user.line_commands
 tag(): user.multiple_cursors
 tag(): user.splits
 tag(): user.tabs
-tag(): terminal
+tag(): user.command_search
+
 
 # NOTES
 # User settings: application_support / "Code - Insiders/User/settings.json",
@@ -24,8 +25,6 @@ window close: user.vscode("workbench.action.closeWindow")
 please [<user.text>]:
     user.vscode("workbench.action.showCommands")
     insert(user.text or "")
-
-restart extension host: user.vscode("workbench.action.restartExtensionHost")
 
 go view [<user.text>]:
     user.vscode("workbench.action.openView")
@@ -307,6 +306,9 @@ term scroll up: user.vscode("workbench.action.terminal.scrollUp")
 term scroll down: user.vscode("workbench.action.terminal.scrollDown")
 term <number_small>: user.vscode_terminal(number_small)
 
+task run [<user.text>]:
+    user.vscode("workbench.action.tasks.runTask")
+    insert(user.text or "")
 #TODO: should this be added to linecommands?
 copy line down: user.vscode("editor.action.copyLinesDownAction")
 copy line up: user.vscode("editor.action.copyLinesUpAction")
@@ -400,3 +402,8 @@ then: skip()
 {user.search_engine} scout <user.cursorless_target>:
     text = user.cursorless_get_text(cursorless_target)
     user.search_with_search_engine(search_engine, text)
+
+
+# Extensions
+
+restart extension host: user.vscode("workbench.action.restartExtensionHost")

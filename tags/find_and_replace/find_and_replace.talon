@@ -1,22 +1,17 @@
 tag: user.find_and_replace
 -
-search this: user.find("")
-search this (pace | paste):
-    user.find("")
-    sleep(25ms)
-    edit.paste()
-search this <user.text>: user.find(text)
-search all: user.find_everywhere("")
-search all (pace | paste):
+tag(): user.find
+
+hunt all: user.find_everywhere("")
+hunt all (pace | paste):
     user.find_everywhere("")
     sleep(25ms)
     edit.paste()
-search all <user.text>: user.find_everywhere(text)
-search case: user.find_toggle_match_by_case()
-search word: user.find_toggle_match_by_word()
-search expression: user.find_toggle_match_by_regex()
-search next: user.find_next()
-search previous: user.find_previous()
+hunt all <user.text>: user.find_everywhere(text)
+hunt case: user.find_toggle_match_by_case()
+hunt word: user.find_toggle_match_by_word()
+hunt expression: user.find_toggle_match_by_regex()
+
 replace this [<user.text>]: user.replace(text or "")
 replace all: user.replace_everywhere("")
 replace <user.text> all: user.replace_everywhere(text)
