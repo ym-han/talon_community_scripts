@@ -46,7 +46,10 @@ with quote:       key(cmd->)
 
 search all files: key(cmd-shift-f)
 
+#################
 # Slash commands
+#################
+
 (add | slash) file:
     insert("/file ")
 
@@ -68,10 +71,14 @@ what does copied do:
   insert(clip.text())
   insert(" do?")
 
-
+#############
+# REPL
+#############
 new cell: "// %% "
 
+#############
 # Panels
+#############
 git panel:
   key(cmd-shift-p)
   insert("git panel: toggle focus")
@@ -92,9 +99,9 @@ new center terminal:
   insert("workspace: new center terminal")
   key(enter)
 
-
+#############
 # Pane splits
-
+#############
 split right:
   key(cmd-shift-p)
   insert("pane: split right")
