@@ -115,20 +115,20 @@ out dent: edit.indent_less()
 
 # Delete
 
-wipe gore:
+(wipe | chuck) gore:
     edit.right()
     edit.delete()
 
-wipe word:
+(wipe | chuck) word:
     edit.select_word()
     edit.delete()
 #clear word: edit.delete_word()
 
-wipe (moon | word left):
+(wipe | chuck) (moon | word left):
     edit.extend_word_left()
     edit.delete()
 
-wipe (step | word right):
+(wipe | chuck) (step | word right):
     edit.extend_word_right()
     edit.delete()
 
