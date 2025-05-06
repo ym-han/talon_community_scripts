@@ -102,7 +102,6 @@ select up: edit.extend_line_up()
 select down: edit.extend_line_down()
 
 
-
 grab head: edit.extend_line_start()
 grab tail: edit.extend_line_end()
 

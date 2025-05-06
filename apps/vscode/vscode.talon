@@ -15,6 +15,8 @@ tag(): user.command_search
 # inspiration: https://github.com/pokey/pokey_talon/blob/7b0f05c07ac651655546c46b071fa3cdf77bc832/apps/vscode/vscode.talon
 
 
+visualize l 4: user.vscode("viz.showViz")
+
 cross it: user.split_next()
 # TODO not sure why this isn't working?
 
@@ -407,3 +409,8 @@ then: skip()
 # Extensions
 
 restart extension host: user.vscode("workbench.action.restartExtensionHost")
+
+suggestion accept: key(cmd-y)
+suggestion reject: key(cmd-n)
+
+add to chat: key(cmd-l)

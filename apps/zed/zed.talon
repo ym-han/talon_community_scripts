@@ -68,3 +68,6 @@ what does copied do:
   insert("What does ")
   insert(clip.text())
   insert(" do?")
+
+
+new cell: "// %% "
