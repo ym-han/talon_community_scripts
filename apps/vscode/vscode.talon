@@ -63,9 +63,9 @@ symbol next: user.vscode("gotoNextPreviousMember.nextMember")
 
 
 # Panels
-panel control: user.vscode("workbench.panel.repl.view.focus")
-panel output: user.vscode("workbench.panel.output.focus")
-panel problems: user.vscode("workbench.panel.markers.view.focus")
+control panel : user.vscode("workbench.panel.repl.view.focus")
+output panel: user.vscode("workbench.panel.output.focus")
+problems panel: user.vscode("workbench.panel.markers.view.focus")
 panel toggle: user.vscode("workbench.action.togglePanel")
 now term:
     user.vscode("workbench.action.terminal.focus")
