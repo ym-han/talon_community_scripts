@@ -46,7 +46,6 @@ with quote:       key(cmd->)
 
 search all files: key(cmd-shift-f)
 
-
 # Slash commands
 (add | slash) file:
     insert("/file ")
@@ -71,3 +70,32 @@ what does copied do:
 
 
 new cell: "// %% "
+
+# Panels
+git panel:
+  key(cmd-shift-p)
+  insert("git panel: toggle focus")
+  key(enter)
+
+project panel:
+  key(cmd-shift-p)
+  insert("project panel: toggle focus")
+  key(enter)
+
+now term:
+  key(cmd-shift-p)
+  insert("terminal panel: toggle focus")
+  key(enter)
+
+new center terminal:
+  key(cmd-shift-p)
+  insert("workspace: new center terminal")
+  key(enter)
+
+
+# Pane splits
+
+split right:
+  key(cmd-shift-p)
+  insert("pane: split right")
+  key(enter)
