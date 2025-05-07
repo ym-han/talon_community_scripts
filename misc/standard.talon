@@ -12,17 +12,15 @@ state to do: "TODO: "
 dot talon: ".talon"
 sync dpt: """dptrp1 sync "/Users/ymh/Dropbox/Sony Reader Sync" Document/sync"""
 
-pref mirdin: "Mirdin Software Design:"
-#pref clingo: "Clingo: "
-pref haskell: "Haskell: "
-pref yak shaving: "Yak shaving: "
-pref talon binding: "Talon voice binding:\n"
-pref rango binding: "Talon voice binding -- Rango:\n"
+prefix doc: "Doc: "
+prefix mirdin: "Mirdin Software Design:"
+#prefix clingo: "Clingo: "
+prefix haskell: "Haskell: "
+prefix yak shaving: "Yak shaving: "
+prefix talon binding: "Talon voice binding:\n"
+prefix rango binding: "Talon voice binding -- Rango:\n"
 
 tag rango talon: "rango-talon"
-
-co authored joesy: "Co-authored-by: johsi-k <johsi.k@gmail.com>"
-#Co-authored-by: name <name@example.com>
 
 talon log path: "/Users/ymh/.talon/talon.log"
 sublime talon log: "subl /Users/ymh/.talon/talon.log"
