@@ -92,12 +92,12 @@ haskell evaluate: "Haskell: What does the following evaluate to?\n\n"
 jay evaluate: "Javascript: What does the following evaluate to?\n\n"
 jay output: "Javascript: What will the following code output?\n\n"
 
-pref launch school: "Launch School:  "
-(pref j s | pref jay): "Javascript:  "
-pref typescript: "Typescript:  "
-pref regex: "Regex: "
+prefix launch school: "Launch School:  "
+(prefix j s | prefix jay): "Javascript:  "
+prefix typescript: "Typescript:  "
+prefix regex: "Regex: "
 
-pref one thirty: "JS130:  "
-pref c s s: "CSS: "
+prefix j s one thirty: "JS130:  "
+prefix c s s: "CSS: "
 
 state true false: "True/False:  "
