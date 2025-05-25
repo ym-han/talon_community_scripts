@@ -29,6 +29,7 @@ code_languages = [
     Language("gdb", "g d b", ["gdb"]),
     Language("go", ["go lang", "go language"], ["go"]),
     # html doesn't actually have a language mode, but we do have snippets.
+    Language("haskell", "haskell", ["hs"]),
     Language("html", "html", ["html"]),
     Language("java", "java", ["java"]),
     Language("javascript", "java script", ["js"]),
@@ -51,15 +52,15 @@ code_languages = [
     Language("scss", "scss", ["scss"]),
     # Language("snippets", "snippets", ["snippets"]),
     Language("sql", "sql", ["sql"]),
-    Language("stata", "stata", ["do", "ado"]),
+    # Language("stata", "stata", ["do", "ado"]),
     Language("talon", "talon", ["talon"]),
     Language("talonlist", "talon list", ["talon-list"]),
-    Language("terraform", "terraform", ["tf"]),
+    # Language("terraform", "terraform", ["tf"]),
     Language("tex", ["tech", "lay tech", "latex"], ["tex"]),
     Language("typescript", "type script", ["ts"]),
     Language("typescriptreact", "type script react", ["tsx"]),
     # Language("vba", "vba", ["vba"]),
-    Language("vimscript", "vim script", ["vim", "vimrc"]),
+    # Language("vimscript", "vim script", ["vim", "vimrc"]),
 ]
 
 # Files without specific extensions but are associated with languages

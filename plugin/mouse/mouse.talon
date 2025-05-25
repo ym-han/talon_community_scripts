@@ -92,8 +92,8 @@ scroll tiny [down] here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_down(0.2)
 
-downy: user.mouse_scroll_down_continuous()
-downslow: user.mouse_scroll_down_continuous(0.45)
+downy: user.mouse_scroll_down_continuous(0.36)
+downslow: user.mouse_scroll_down_continuous(0.15)
 
 
 #scroll downer here:

@@ -13,6 +13,10 @@ settings():
 
 dot hs: ".hs"
 
+##############################################
+######### Pragmas ############################
+##############################################
+
 pragma wall: "{{-# OPTIONS_GHC -Wall #-}}"
 # enables all warnings
 
@@ -26,6 +30,8 @@ pragma existential quantification: "{{-# LANGUAGE ExistentialQuantification #-}}
 
 
 pragma stand alone deriving: "{{-# LANGUAGE StandaloneDeriving #-}}"
+
+disable import warning pragma: "{{-# OPTIONS_GHC -fno-warn-unused-imports -Wno-error=unused-imports #-}}"
 
 
 set type applications: ":set -XTypeApplications\n"
@@ -78,7 +84,6 @@ add constructor:
 type list:
     "[]"
     edit.left()
-
 
 
 # equivalent of snippet "annotated expression"

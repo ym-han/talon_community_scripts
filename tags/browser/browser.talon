@@ -9,6 +9,9 @@ page focus: browser.focus_page()
 go home: browser.go_home()
 go private: browser.open_private_window()
 
+go local host:
+    insert("http://localhost:5173/")
+    key(enter)
 
 bookmark it: browser.bookmark()
 bookmark tabs: browser.bookmark_tabs()

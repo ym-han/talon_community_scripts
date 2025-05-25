@@ -105,7 +105,8 @@ select down: edit.extend_line_down()
 grab head: edit.extend_line_start()
 grab tail: edit.extend_line_end()
 
-
+grab header: edit.extend_file_start()
+grab tailor: edit.extend_file_end()
 
 # Indent
 indent it: edit.indent_more()
@@ -265,5 +266,3 @@ cut tailor:
 paste it: edit.paste()
 
 paste match: edit.paste_match_style()
-
-

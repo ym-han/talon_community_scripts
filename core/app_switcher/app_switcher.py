@@ -436,7 +436,7 @@ def gui_running(gui: imgui.GUI):
 def update_launch_list():
     launch = get_apps()
 
-    # actions.user.talon_pretty_print(launch)
+    #actions.user.talon_pretty_print(launch)
 
     ctx.lists["self.launch"] = actions.user.create_spoken_forms_from_map(
         launch, words_to_exclude

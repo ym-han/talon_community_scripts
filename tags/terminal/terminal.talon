@@ -92,6 +92,19 @@ zee shirk: ".zshrc"
 
 git name: "ym-han\n"
 
+git log one line:
+  insert("git log --oneline")
+  key(enter)
+
+git force push:
+  insert("git push --force-with-lease")
+  key(enter)
+
+get where git config: "git config --global --list --show-origin"
+
+pull main:
+  insert("git switch main; git pull")
+  key(enter)
 
 find non kebab case: 'fd --no-ignore "[^a-z0-9-]|^-|-$|--"'
 
@@ -116,6 +129,15 @@ pseudo a p t update: "sudo apt-get update"
 
 pseduo a p t install: "sudo apt install "
 
+d
+# ============================
+# ----- git ------------------
+# ============================
+
+git diff clip ks:
+  insert("git difftool -y -t Kaleidoscope HEAD")
+  key(right:10)
+  insert(clip.text())
 
 # ============================
 # ----- LLM ------------------
@@ -167,9 +189,25 @@ go community talon: "cd ~/.talon/knausj_talon"
 # --- CCLAW DSL dev related ----
 # ==============================
 
-go use cases:
-    insert("cd /Users/ymh/Documents/Git_repos/smucclaw/usecases")
-    key(enter)
+start web sessions server:
+  insert("jl4-websessions 5008 session.db")
+  key(enter)
+
+go monaco:
+  insert("cd ~/_git/smucclaw/mattwaddington/ts-apps/jl4-web/")
+  key(enter)
+
+monaco lsp:
+  insert("cabal run exe:jl4-lsp -- ws --host localhost --port 5007")
+  key(enter)
+
+monaco dev:
+  insert("cd ~/_git/smucclaw/mattwaddington/ts-apps/jl4-web/")
+  key(enter)
+  insert("corepack npm run dev")
+  key(enter)
+
+go matt wadd: "cd ~/_git/smucclaw/mattwaddington"
 
 # go test cases:
 #     insert("cdl4")
@@ -252,6 +290,16 @@ run unicorn:
 
 # cd /home/ymhan/repos/gsheet/natural4-server/natural4_server/
 # poetry run gunicorn wsgi:app -c  gunicorn.ym.py
+
+
+# ============================
+# -------- CCLAW AWS ---------
+# ============================
+
+aws login: insert("aws sso login --profile cclaw-power-user")
+state claw power user: "cclaw-power-user"
+profile claw power user: "--profile cclaw-power-user"
+
 
 # --------------
 
@@ -399,6 +447,22 @@ stack repl test:
     key(enter)
 # natural4:test:natural4-test
 
+monaco lsp: insert("jl4-lsp -- ws --port 5007")
+
+# === repl
+show modules: ":show modules"
+show imports: ":show imports"
+
+# To import a loaded module in GHCi
+# and access all the internal definitions and imports, do :m + *MyModule.
+# https://www.reddit.com/r/haskell/comments/16q2xbs/working_effectively_with_cabal_repl/
+import loaded module: ":m + *"
+import loaded ladder: ":m + *LSP.L4.Viz.Ladder"
+import loaded parser: ":m + *L4.Parser"
+
+repl browse:
+  insert(":browse")
+  key(enter)
 
 # ===============================
 # ----- Javascript related ------
@@ -410,12 +474,32 @@ run e s lint: "npx eslint "
 
 state corepack: "corepack"
 
+npm install:
+  insert("corepack npm install")
+  key(enter)
+
 npm test:
   insert("corepack npm run test")
   key(enter)
 
 npm check:
   insert("corepack npm run check")
+  key(enter)
+
+npm dev:
+  insert("corepack npm run dev")
+  key(enter)
+
+npm preview:
+  insert("corepack npm run preview")
+  key(enter)
+
+npm lint:
+  insert("corepack npm run lint")
+  key(enter)
+
+npm check all:
+  insert("corepack npm run check; corepack npm run lint; corepack npm run test")
   key(enter)
 
 npm ci build:
@@ -437,27 +521,29 @@ npm format:
 # ----- pnpm ----------
 
 pee build:
-  insert("pnpm run build")
+  insert("corepack pnpm run build")
   key(enter)
-pee run:
-  insert("pnpm run dev -- --open")
+
+pee dev:
+  insert("corepack pnpm run dev -- --open")
   key(enter)
 
 pee check:
-    insert("pnpm run check")
+    insert("corepack pnpm run check")
     key(enter)
 
 pee prepare:
-    insert("pnpm prepare")
+    insert("corepack pnpm prepare")
     key(enter)
 
 pee test:
-    insert("pnpm test")
+    insert("corepack pnpm test")
     key(enter)
 
 pee format:
-    insert("pnpm format")
+    insert("corepack pnpm format")
     key(enter)
+
 
 # ============================
 # ----- Nix related     ------
@@ -475,6 +561,8 @@ shay apply: "chezmoi apply -v"
 shay diff:  "chezmoi diff"
 
 make virtual environment: "virtualenv"
+source activate: "source .venv/bin/activate"
+
 #environment reel: "source ~/environments/rel/bin/activate\n"
 #environment text gen: "source ~/environments/textgen/bin/activate\n"
 #environment termolator: "source ~/environments/termo/bin/activate\n"
@@ -647,12 +735,20 @@ run last: user.terminal_run_last()
 rerun search: user.terminal_rerun_search("")
 #kill all: user.terminal_kill_all()
 
+turbo all:
+  insert("corepack npm run format; turbo run build lint test")
+  key(enter)
+
 go waddington:
     insert("cd ~/_git/smucclaw/mattwaddington")
     key(enter)
 
+go viz:
+    insert("cd ~/_git/smucclaw/mattwaddington/ts-apps/decision-logic-visualizer")
+    key(enter)
+
 install lsp:
-    insert("cabal install exe:jl4-lsp --overwrite-policy=always")
+    insert("cabal install exe:jl4-lsp --overwrite-policy=always -fast")
     key(enter)
 
 extension:
@@ -662,3 +758,12 @@ extension:
 install extension:
     insert("code --install-extension *.vsix")
     key(enter)
+
+
+# ============================
+# -------- Studying ----------
+# ============================
+
+go a d h: "cd ~/_git/haskell-related/haskell-exercises/algorithm-design-with-haskell"
+go algos prac: "cd ~/_git/cs_stuff/algosprac"
+go haskell related: "cd ~/_git/haskell-related"

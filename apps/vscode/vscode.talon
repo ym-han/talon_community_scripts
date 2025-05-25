@@ -258,8 +258,8 @@ git sync: user.vscode("git.sync")
 git unstage: user.vscode("git.unstage")
 git unstage all: user.vscode("git.unstageAll")
 
-# (wreck | rec) make: user.vscode("pr.create")
-# (wreck | rec) show: user.vscode("prStatus:github.focus")
+(wreck | rec) make: user.vscode("pr.create")
+(wreck | rec) show: user.vscode("prStatus:github.focus")
 (wreck | rec) web: user.vscode("gitlens.openAssociatedPullRequestOnRemote")
 # pull request: user.vscode("pr.create")
 # Use keyboard shortcuts because VSCode relies on when clause contexts to choose the appropriate
@@ -308,6 +308,15 @@ term scroll up: user.vscode("workbench.action.terminal.scrollUp")
 term scroll down: user.vscode("workbench.action.terminal.scrollDown")
 term <number_small>: user.vscode_terminal(number_small)
 
+# Command to search terminal history - focuses terminal, presses up, waits, then inserts phrase
+(man list | manless) [<user.text>]:
+    user.vscode("workbench.action.terminal.focus")
+    sleep(150ms)
+    key(up)
+    sleep(150ms)
+    insert(user.text or "")
+
+# Tasks
 task run [<user.text>]:
     user.vscode("workbench.action.tasks.runTask")
     insert(user.text or "")

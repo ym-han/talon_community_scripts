@@ -47,7 +47,7 @@ def keypad_key(m) -> str:
 def letter(m) -> str:
     "One letter key"
     return m.letter
-
+    
 
 @mod.capture(rule="{self.special_key}")
 def special_key(m) -> str:
@@ -215,19 +215,19 @@ simple_keys = [
     "pagedown",
     "pageup",
     "space",
-    "tab it",
+    # "tab it",
 ]
 
-alternate_keys = {
-    "wipe": "backspace",
-    #"delete": "backspace",
-    # 'junk': 'backspace',
-    "taber": "tab",
-    "forward delete": "delete",
-    "page up": "pageup",
-    "page down": "pagedown",
-    "lap": "enter",
-}
+# alternate_keys = {
+#     "wipe": "backspace",
+#     #"delete": "backspace",
+#     # 'junk': 'backspace',
+#     "taber": "tab",
+#     "forward delete": "delete",
+#     "page up": "pageup",
+#     "page down": "pagedown",
+#     "lap": "enter",
+# }
 # # mac apparently doesn't have the menu key.
 # if app.platform in ("windows", "linux"):
 #     alternate_keys["menu key"] = "menu"

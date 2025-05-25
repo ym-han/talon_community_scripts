@@ -16,7 +16,7 @@ key <user.modifiers> over: "{modifiers}"
 
 action {user.talon_actions}: "{talon_actions}"
 # requires user.talon_populate_lists tag. do not use with dragon
-list {user.talon_lists}: "{talon_lists}"
+tee list {user.talon_lists}: "{talon_lists}"
 
 # requires user.talon_populate_lists tag. do not use with dragon
 capture {user.talon_captures}: "{talon_captures}"
