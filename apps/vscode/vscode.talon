@@ -184,7 +184,7 @@ ref last:
 go back: user.vscode("workbench.action.navigateBack")
 go forward: user.vscode("workbench.action.navigateForward")
 go implementation: user.vscode("editor.action.goToImplementation")
-go type: user.vscode("editor.action.goToTypeDefinition")
+go type def: user.vscode("editor.action.goToTypeDefinition")
 #go usage: user.vscode("references-view.find")
 go recent [<user.text>]:
     user.vscode("workbench.action.openRecent")
