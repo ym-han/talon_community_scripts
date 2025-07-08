@@ -25,7 +25,7 @@ snap <user.window_split_position> <user.running_applications> <user.running_appl
 snap <user.running_applications> [screen] <number>:
     user.move_app_to_screen(running_applications, number)
 
-chromer [<phrase>]$:
+portal [<phrase>]$:
     user.switcher_focus("Google Chrome")
     sleep(200ms)
     user.parse_phrase(phrase or "")
@@ -43,12 +43,15 @@ vee coder [<phrase>]$:
     sleep(200ms)
     user.parse_phrase(phrase or "")
 
-
 tune talon [<phrase>]$:
-    user.switcher_focus("Code")
+    user.switcher_focus("zed")
     sleep(250ms)
-    user.vscode("workbench.action.openRecent")
+
+    key(cmd-shift-p)
+    insert("open recent")
+    key(enter)
     sleep(250ms)
+
     insert("knausj_talon")
     key(enter)
     sleep(250ms)
