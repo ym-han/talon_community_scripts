@@ -3,12 +3,6 @@ tag: user.line_commands
 #Aug 27 notes: These do not seem to work in the browser
 
 #this defines some common line commands. More may be defined that are ide-specific.
-lend:
-    user.deprecate_command("2024-07-30", "lend", "go line end | tail")
-    edit.line_end()
-bend:
-    user.deprecate_command("2024-07-30", "bend", "go line start | head")
-    edit.line_start()
 go <number>: edit.jump_line(number)
 go <number> end:
     edit.jump_line(number)
@@ -23,10 +17,10 @@ snip line <number>:
     edit.jump_line(number)
     user.select_range(number, number)
     edit.delete()
-snip <number> until <number>: 
+snip <number> until <number>:
     user.select_range(number_1, number_2)
     edit.delete()
-copy line <number>: 
+copy line <number>:
     user.select_range(number, number)
     edit.copy()
 copy <number> until <number>:
