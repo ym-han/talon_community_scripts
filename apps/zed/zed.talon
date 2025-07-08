@@ -41,6 +41,7 @@ soft wrap:
 
 help here:        key(ctrl-enter)
 assist panel:     key(cmd-r)
+accept suggestion: key(tab)
 
 with quote:       key(cmd->)
 
@@ -82,6 +83,11 @@ new cell: "// %% "
 git panel:
   key(cmd-shift-p)
   insert("git panel: toggle focus")
+  key(enter)
+
+git panel close:
+  key(cmd-shift-p)
+  insert("git panel: close")
   key(enter)
 
 project panel:
