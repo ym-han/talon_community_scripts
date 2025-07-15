@@ -556,3 +556,6 @@ class Actions:
             actions.edit.left()
             actions.user.delete_right()  # remove peek character
         return before, after
+
+
+# YM: TODO: This could use some work --- code not very understandable at a glance.
