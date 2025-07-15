@@ -4,10 +4,10 @@ state decl: "decl"
 state to do: "TODO: "
 
 # homerow
-^mouser [<user.text>]:
-    user.homerow_search()
-    sleep(50ms)
-    insert(text or "")
+#^mouser [<user.text>]:
+#    user.homerow_search()
+#    sleep(50ms)
+#    insert(text or "")
 
 dot talon: ".talon"
 sync dpt: """dptrp1 sync "/Users/ymh/Dropbox/Sony Reader Sync" Document/sync"""
@@ -30,9 +30,9 @@ zed talon log:
 slow mode: mode.enable("user.slow")
 fast mode: mode.disable("user.slow")
 
-witcher: key(ctrl-space)
+#witcher: key(ctrl-space)
 
-#switcher: key(alt-p)
+switcher: key(alt-p)
 # for Contexts app
 
 paste match: edit.paste_match_style()
