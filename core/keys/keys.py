@@ -9,11 +9,6 @@ from .symbols import (
 mod = Module()
 ctx = Context()
 
-ctx_dragon = Context()
-ctx_dragon.matches = r"""
-speech.engine: dragon
-"""
-
 mod.list("letter", desc="The spoken phonetic alphabet")
 mod.list("symbol_key", desc="All symbols from the keyboard")
 mod.list("arrow_key", desc="All arrow keys")
@@ -125,4 +120,3 @@ class Actions:
 
 ctx.lists["user.punctuation"] = punctuation_dict
 ctx.lists["user.symbol_key"] = symbol_key_dict
-ctx_dragon.lists["user.punctuation"] = dragon_punctuation_dict
