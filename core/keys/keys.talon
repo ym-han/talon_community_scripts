@@ -1,42 +1,47 @@
-<user.letter>: key(letter)
-ship <user.letters> [(lowercase | sunk)]:
-    user.insert_formatted(letters, "ALL_CAPS")
+<user.letter>:                        key(letter)
+ship <user.letters> [(lowercase | sunk)]: user.insert_formatted(letters, "ALL_CAPS")
 
-<user.symbol_key>: key(symbol_key)
-<user.function_key>: key(function_key)
-<user.special_key>: key(special_key)
+<user.symbol_key>:                    key(symbol_key)
+<user.function_key>:                  key(function_key)
+<user.special_key>:                   key(special_key)
 
-<user.keypad_key>: key(keypad_key)
+<user.keypad_key>:                    key(keypad_key)
 
-<user.modifiers> <user.unmodified_key>: key("{modifiers}-{unmodified_key}")
+<user.modifiers> <user.unmodified_key>:   key("{modifiers}-{unmodified_key}")
 # for key combos consisting only of modifiers, eg. `press super`.
-press <user.modifiers>: key(modifiers)
+press <user.modifiers>:               key(modifiers)
 # for consistency with dictation mode and explicit arrow keys if you need them.
-press <user.keys>: key(keys)
+press <user.keys>:                    key(keys)
 
 # Special symbols
-sym new line:          "\\n"
-sym tab:               "\\t"
-sym carriage return: "\\r"
-sym line feed: "\\r\\n"
+sym new line:                         "\\n"
+sym tab:                              "\\t"
+sym carriage return:                  "\\r"
+sym line feed:                        "\\r\\n"
 
-sym ellipses: "..."
-sym reversed arrow: "<-"
-sym arrow: "->"
-sym dub arrow: "=>"
-sym dub dash: "--"
-sym big dash:  "---"
-sym code block: insert("```\n")
-sym triple quote:  "'''"
+sym lambda:                           "λ"
+sym gamma:                            "Γ"
+sym small gamma:                      "γ"
+sym member of:                        "∈"
+sym sigma:                            "σ"
 
-coalgap: ": "
-semi gap: "; "
-spamma: ", "
+sym ellipses:                         "..."
+sym reversed arrow:                   "<-"
+sym arrow:                            "->"
+sym dub arrow:                        "=>"
+sym dub dash:                         "--"
+sym big dash:                         "---"
+sym code block:                       insert("```\n")
+sym triple quote:                     "'''"
+
+coalgap:                              ": "
+semi gap:                             "; "
+spamma:                               ", "
 
 # See also plugin/symbols/symbols.talon -- TODO: need to rationalize that!
 
 # Add symbol at end of line and then insert line below
-spike {user.symbol}:        user.insert_symbol_and_break_at_end(symbol)
+spike {user.symbol}:                  user.insert_symbol_and_break_at_end(symbol)
 
 # Add symbol padded/surrounded by whitespace
-pad {user.symbol}:          " {symbol} "
+pad {user.symbol}:                    " {symbol} "
