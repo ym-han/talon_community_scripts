@@ -1,0 +1,48 @@
+list: user.symbol
+-
+
+step:          space
+dot:           .
+point:         .
+drip:          ,
+stack:         :
+semi:          ;
+score:         _
+dash:          -
+
+minus:         -
+plus:          +
+equal:         =
+equals:        =
+caret:         ^
+tilde:         ~
+bang:          !
+hash:          #
+star:          *
+dollar:        $
+percent:       %
+question:      ?
+question mark: ?
+amper:         &
+at sign:       @
+swirl:         @
+pound sign:    £
+euro sign:     €
+
+single:        "'"
+double:        '"'
+quote:         '"'
+batick:        `
+
+slash:         /
+pipe:          |
+pike:          \
+
+paren:         (
+raren:         )
+brace:         {
+race:          }
+square:        [
+rare:          ]
+angle:         <
+rangle:        >

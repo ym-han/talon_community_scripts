@@ -1,27 +1,3 @@
-# new line: "\n"
-double dash: "--"
-triple dash: "--"
-triple quote: "'''"
-(code block | triple back tick): insert("```\n")
-code block lam four: insert("```lam4\n")
-code block haskell: insert("```haskell\n")
-code block javascript: insert("```javascript\n")
-code block typescript: insert("```typescript\n")
-
-(dot dot | dotdot): ".."
-ellipses: "..."
-semi space: "; "
-
-coalgap: ": "
-spamma: ", "
-
-sym reversed arrow: "<-"
-sym arrow: "->"
-sym dub arrow: "=>"
-
-carriage return: "\\r"
-line feed: "\\r\\n"
-
 ### TODO: Not sure if need the following
 ### empty <...>
 empty round: "()"

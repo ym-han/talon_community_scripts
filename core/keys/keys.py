@@ -1,11 +1,5 @@
 from talon import Context, Module, actions, app
 
-from .symbols import (
-    dragon_punctuation_dict,
-    punctuation_dict,
-    symbol_key_dict,
-)
-
 mod = Module()
 ctx = Context()
 
@@ -115,8 +109,4 @@ def letters(m) -> str:
 class Actions:
     def get_punctuation_words():
         """Gets the user.punctuation list"""
-        return punctuation_dict
-
-
-ctx.lists["user.punctuation"] = punctuation_dict
-ctx.lists["user.symbol_key"] = symbol_key_dict
+        return ctx.lists["user.punctuation"]

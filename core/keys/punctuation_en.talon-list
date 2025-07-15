@@ -1,0 +1,12 @@
+list: user.punctuation
+-
+
+# fmt: columnWidth=18
+
+period:           .
+comma:            ,
+colon:            :
+slash:            /
+forward slash:    /
+question mark:    ?
+exclamation mark: !
