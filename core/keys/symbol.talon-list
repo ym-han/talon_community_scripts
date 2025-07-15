@@ -1,7 +1,7 @@
 list: user.symbol
 -
 
-step:          space
+#step:          space
 dot:           .
 point:         .
 drip:          ,
