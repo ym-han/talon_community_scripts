@@ -20,7 +20,6 @@ code_languages = [
     Language("batch", "batch", ["bat"]),
     Language("c", "see", ["c", "h"]),
     # Language("cmake", "see make", ["cmake"]),
-    # Language("cplusplus", "see plus plus", ["cpp", "hpp"]),
     Language("csharp", "see sharp", ["cs"]),
     Language("css", "c s s", ["css"]),
     # Language("elisp", "elisp", ["el"]),
@@ -30,11 +29,9 @@ code_languages = [
     Language("go", ["go lang", "go language"], ["go"]),
     # html doesn't actually have a language mode, but we do have snippets.
     Language("haskell", "haskell", ["hs"]),
-    Language("html", "html", ["html"]),
     Language("java", "java", ["java"]),
     Language("javascript", "java script", ["js"]),
     Language("javascriptreact", "java script react", ["jsx"]),
-    # Language("json", "json", ["json"]),
     # Language("jsonl", "json lines", ["jsonl"]),
     Language("kotlin", "kotlin", ["kt"]),
     Language("lua", "lua", ["lua"]),
@@ -60,7 +57,14 @@ code_languages = [
     Language("typescript", "type script", ["ts"]),
     Language("typescriptreact", "type script react", ["tsx"]),
     # Language("vba", "vba", ["vba"]),
-    # Language("vimscript", "vim script", ["vim", "vimrc"]),
+    Language("vimscript", "vim script", ["vim", "vimrc"]),
+    # These languages doesn't actually have a language mode, but we do have snippets.
+    Language("cpp", "see plus plus", ["cpp", "hpp"]),
+    Language("csv", "csv", ["csv"]),
+    Language("html", "html", ["html"]),
+    Language("json", "json", ["json"]),
+    Language("shellscript", "shell script", ["sh"]),
+    Language("xml", "xml", ["xml"]),
 ]
 
 # Files without specific extensions but are associated with languages

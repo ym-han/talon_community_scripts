@@ -4,6 +4,10 @@
 
 # Compound of action(select, clear, copy, cut, paste, etc.) and modifier(word, line, etc.) commands for editing text.
 # eg: "select line", "clear all"
+# For overriding or creating aliases for specific actions, this function will
+# also accept strings, e.g. `user.edit_command("delete", "wordLeft")`.
+# See edit_command_modifiers.py to discover the correct string for the modify argument,
+# and `edit_command_actions.py` `simple_action_callbacks` to find strings for the action argument.
 <user.edit_action> <user.edit_modifier>: user.edit_command(edit_action, edit_modifier)
 
 
@@ -77,6 +81,11 @@ dup it: edit.selection_clone()
 
 cork none: edit.select_none()
 
+select all: edit.select_all()
+
+select up: edit.extend_line_up()
+select down: edit.extend_line_down()
+
 grab up: edit.extend_up()
 grab down: edit.extend_down()
 
@@ -96,131 +105,22 @@ grab (moon | word left): edit.extend_word_left()
 grab (step | word right): edit.extend_word_right()
 
 
-select all: edit.select_all()
-
-select up: edit.extend_line_up()
-select down: edit.extend_line_down()
-
-
-grab head: edit.extend_line_start()
-grab tail: edit.extend_line_end()
-
-grab header: edit.extend_file_start()
-grab tailor: edit.extend_file_end()
-
-# Indent
-indent it: edit.indent_more()
-
-out dent: edit.indent_less()
-
-
-# Delete
-
-(wipe | chuck) gore:
-    edit.right()
-    edit.delete()
-
-(wipe | chuck) word:
-    edit.select_word()
-    edit.delete()
-#clear word: edit.delete_word()
-
-(wipe | chuck) (moon | word left):
-    edit.extend_word_left()
-    edit.delete()
-
-(wipe | chuck) (step | word right):
-    edit.extend_word_right()
-    edit.delete()
-
-(snip | ex) line: edit.delete_line()
-
-snip up:
-    edit.extend_line_up()
-    edit.delete()
-
-snip down:
-    edit.extend_line_down()
-    edit.delete()
-
-ex left:
-    edit.extend_line_start()
-    edit.delete()
-
-ex right:
-    edit.extend_line_end()
-    edit.delete()
-
-
-ex all up:
-    edit.extend_file_start()
-    edit.delete()
-
-ex down:
-    edit.extend_file_end()
-    edit.delete()
-
-snip all:
-    edit.select_all()
-    edit.delete()
-
-snip header:
-    edit.extend_file_start()
-    edit.delete()
-
-snip tailor:
-    edit.extend_file_end()
-    edit.delete()
-
+# Indentation
+indent [more]: edit.indent_more()
+(indent less | out dent): edit.indent_less()
 
 # Copy
-
-cop it: edit.copy()
-
-copy word:
-    edit.select_word()
-    edit.copy()
-
-copy all:
-    edit.select_all()
-    edit.copy()
-
-copy (moon | word left):
-    edit.extend_word_left()
-    edit.copy()
-
-copy (step | word right):
-    edit.extend_word_right()
-    edit.copy()
-
-copy line:
-    edit.select_line()
-    edit.copy()
-
-
-copy head:
-    edit.extend_line_start()
-    edit.copy()
-    key(right)
-
-copy tail:
-    edit.extend_line_end()
-    edit.copy()
-    key(left)
-
-copy header:
-    edit.extend_file_start()
-    edit.copy()
-    key(right)
-
-copy tailor:
-    edit.extend_file_end()
-    edit.copy()
-    key(left)
-
+copy that: edit.copy()
 
 # Cut
+cut that: edit.cut()
 
+# Paste
+(pace | paste) (that | it): edit.paste()
+(pace | paste) enter:
+    edit.paste()
+    key(enter)
+paste match: edit.paste_match_style()
 
 cut it: edit.cut()
 

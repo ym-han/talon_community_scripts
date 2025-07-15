@@ -29,6 +29,9 @@ settings():
     # Set the scroll amount for continuous scroll/gaze scroll
     user.mouse_continuous_scroll_amount = 7
 
+    # Set the scroll multiplier for gaze scroll
+    user.mouse_gaze_scroll_speed_multiplier = 1.0
+
     # Set the maximum acceleration factor when scrolling continuously. 1=constant speed/no acceleration.
     user.mouse_continuous_scroll_acceleration = 1
 
@@ -46,6 +49,10 @@ settings():
 
     # If `true`, use a hissing noise to scroll continuously
     user.mouse_enable_hiss_scroll = false
+
+    # How much time a hiss must last for to be considered a hiss rather than
+    # part of speech, in ms
+    user.hiss_scroll_debounce_time = 100
 
     # If `true`, hide the continuous scroll/gaze scroll GUI
     user.mouse_hide_mouse_gui = false
@@ -76,8 +83,11 @@ settings():
     # .snippet files. Changing this setting requires a restart of Talon.
     # user.snippets_dir = "snippets"
 
-    # Uncomment the below to insert text longer than 10 characters (customizable) by
-    # pasting from the clipboard. This is often faster than typing.
+    # Set to the number of spaces to use for each tab when inserting snippets as raw text (without editor support). Set to -1 to insert tabs as tabs, such as in code editors that can expand tabs in pasted or typed text. This setting is provided for applications like web browsers and chat apps that do not understand code formatting.
+    user.snippet_raw_text_spaces_per_tab = 4
+
+    # Uncomment to insert text longer than 10 characters (customizable) by pasting from
+    # the clipboard. This is often faster than typing.
     user.paste_to_insert_threshold = 10
 
     # Uncomment to enable context-sensitive dictation. This determines how to format
@@ -117,3 +127,7 @@ tag(): user.mouse_cursor_commands_enable
 # By default you need to say "numb one" to write "1". If you uncomment this,
 # you can say "one" to write "1".
 # tag(): user.unprefixed_numbers
+
+# Uncomment the below to enable the experimental window layout commands
+# defined in window_layout.talon
+# tag(): user.experimental_window_layout

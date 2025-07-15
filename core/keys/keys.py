@@ -1,9 +1,21 @@
 from talon import Context, Module, actions, app
 
+from .symbols import (
+    dragon_punctuation_dict,
+    punctuation_dict,
+    symbol_key_dict,
+)
+
 mod = Module()
+ctx = Context()
+
+ctx_dragon = Context()
+ctx_dragon.matches = r"""
+speech.engine: dragon
+"""
+
 mod.list("letter", desc="The spoken phonetic alphabet")
 mod.list("symbol_key", desc="All symbols from the keyboard")
-mod.list("saranable_key", desc="Symbols / things that can be wrapped in spaces")
 mod.list("arrow_key", desc="All arrow keys")
 mod.list("number_key", desc="All number keys")
 mod.list("modifier_key", desc="All modifier keys")
@@ -47,7 +59,7 @@ def keypad_key(m) -> str:
 def letter(m) -> str:
     "One letter key"
     return m.letter
-    
+
 
 @mod.capture(rule="{self.special_key}")
 def special_key(m) -> str:
@@ -59,12 +71,6 @@ def special_key(m) -> str:
 def symbol_key(m) -> str:
     "One symbol key"
     return m.symbol_key
-
-@mod.capture(rule="{self.saranable_key}")
-def saranable_key(m) -> str:
-    "Space wrapped symbol key"
-    print(f"m is {m}\n")
-    return str(m)
 
 
 @mod.capture(rule="{self.function_key}")
@@ -110,143 +116,13 @@ def letters(m) -> str:
     return "".join(m.letter_list)
 
 
-ctx = Context()
-
-# `punctuation_words` is for words you want available BOTH in dictation and as key names in command mode.
-# `symbol_key_words` is for key names that should be available in command mode, but NOT during dictation.
-punctuation_words = {
-    # TODO: I'm not sure why we need these, I think it has something to do with
-    # Dragon. Possibly it has been fixed by later improvements to talon? -rntz
-    "`": "`",
-    ",": ",",  # <== these things
-    "starry": "*",
-
-    "back tick": "`",
-    # "grave": "`",
-    "comma": ",",
-    # Workaround for issue with conformer b-series; see #946
-    #"coma": ",",
-    "period": ".",
-    # "full stop": ".",
-    "semi": ";",
-    "colon": ":",
-    "for slash": "/",
-    "questo": "?",
-    "exclaimation": "!",
-    # "number sign": "#",
-    "at sign": "@",
-
-    "sym percent": "%",
-    "sym amp": "&",
-}
-symbol_key_words = {
-    # "point": ".",
-    "square": "[",
-    "rack": "]",
-    "r square": "]",
-    "backslash": "\\",
-    "plus": "+",
-    "minus": "-",
-    "dasher": "-",
-    "equals": "=",
-    # "grave": "`",
-    "tilde": "~",
-    "bang": "!",
-    "down score": "_",
-    "leper": "(",
-    "reper": ")",
-    "bracey": "{",
-    "R brace": "}",
-
-    "sym quote": "'",
-    "sym angle": "<",
-    "sym rangle": ">",
-    "sym hash": "#",
-    "sym lambda": "λ",
-    "sym gamma": "Γ",
-    "sym member of": "∈",
-    "sym small gamma": "γ",
-
-    "smaller than": "<",
-    "greater than": ">",
+@mod.action_class
+class Actions:
+    def get_punctuation_words():
+        """Gets the user.punctuation list"""
+        return punctuation_dict
 
 
-    # "pound": "#",
-    # "percent": "%",
-    "sym caret": "^",
-
-    "sym pipe": "|",
-    "dubquote": '"',
-    # Currencies
-    "dollar sign": "$",
-}
-
-
-only_for_saran = {
-    "big arrow":      "=>",
-    "arrow":          "->",
-    "reversed arrow": "<-",
-    "not equal":      "!=",
-    "pipe":           "|",
-    "dollar":         "$",
-    "em dash":        "---",
-    "starry":         "*"
-}
-
-
-# TO DO: Ok I think I should make this a formatter insteadd
-saranable_key_words = {binding: f" {symbol} " for binding, symbol in symbol_key_words.items()}
-saranable_key_words.update( {binding: f" {symbol} " for binding, symbol in only_for_saran.items()})
-
-# make punctuation words also included in {user.symbol_keys}
-symbol_key_words.update(punctuation_words)
-ctx.lists["self.punctuation"] = punctuation_words
-ctx.lists["self.symbol_key"] = symbol_key_words
-ctx.lists["self.saranable_key"] = saranable_key_words
-
-# ------- TODO Feb 2 merge update: Not sure if we need the following ---- #
-
-simple_keys = [
-    # "end",
-    # "enter",
-    "escape",
-    # "home",
-    "insert key",
-    "pagedown",
-    "pageup",
-    "space",
-    # "tab it",
-]
-
-# alternate_keys = {
-#     "wipe": "backspace",
-#     #"delete": "backspace",
-#     # 'junk': 'backspace',
-#     "taber": "tab",
-#     "forward delete": "delete",
-#     "page up": "pageup",
-#     "page down": "pagedown",
-#     "lap": "enter",
-# }
-# # mac apparently doesn't have the menu key.
-# if app.platform in ("windows", "linux"):
-#     alternate_keys["menu key"] = "menu"
-#     alternate_keys["print screen"] = "printscr"
-
-# special_keys = {k: k for k in simple_keys}
-# special_keys.update(alternate_keys)
-# ctx.lists["self.special_key"] = special_keys
-# ctx.lists["self.function_key"] = {
-#     f"F {name}": f"f{i}" for i, name in enumerate(f_digits, start=1)
-# }
-
-
-# @mod.action_class
-# class Actions:
-#     def move_cursor(s: str):
-#         """Given a sequence of directions, eg. 'left left up', moves the cursor accordingly using edit.{left,right,up,down}."""
-#         for d in s.split():
-#             if d in ("left", "right", "up", "down"):
-#                 getattr(actions.edit, d)()
-#             else:
-#                 raise RuntimeError(f"invalid arrow key: {d}")
+ctx.lists["user.punctuation"] = punctuation_dict
+ctx.lists["user.symbol_key"] = symbol_key_dict
+ctx_dragon.lists["user.punctuation"] = dragon_punctuation_dict

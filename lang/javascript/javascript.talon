@@ -6,7 +6,6 @@ code.language: typescriptreact
 tag(): user.code_imperative
 tag(): user.code_object_oriented
 
-tag(): user.code_block_c_like
 tag(): user.code_comment_line
 tag(): user.code_comment_block_c_like
 tag(): user.code_data_bool
@@ -29,15 +28,9 @@ settings():
     user.code_protected_variable_formatter = "PRIVATE_CAMEL_CASE"
     user.code_public_variable_formatter = "PRIVATE_CAMEL_CASE"
  
-(op | is) equals: " === "
-(op | is) not equal: " !== "
 op nullish: " ?? "
 
-new func: 
-    insert("function () {\n")
-    key(left:5)
-
-
+op null else: " ?? "
 
 
 begin code: "```javascript\n"

@@ -9,6 +9,12 @@ mouse on: user.mouse_wake()
 zoom mouse: tracking.control_zoom_toggle()
 camera overlay: tracking.control_debug_toggle()
 calibrate mouse: tracking.calibrate()
+
+
+###########################
+#     Clicking
+###########################
+
 touch:
     # close zoom if open
     tracking.zoom_cancel()
@@ -68,6 +74,12 @@ dub click:
     mouse_click()
     # close the mouse grid
     user.grid_close()
+
+###########################
+#     Dragging
+###########################
+
+
 drag it:
     # close zoom if open
     tracking.zoom_cancel()
@@ -83,6 +95,12 @@ right drag:
     # close the mouse grid
     user.grid_close()
 end drag | drag end: user.mouse_drag_end()
+
+
+###########################
+#     Scrolling
+###########################
+
 #scroll down: user.mouse_scroll_down()
 scroll down here:
     user.mouse_move_center_active_window()
@@ -108,24 +126,6 @@ scroll tiny up: user.mouse_scroll_up(0.2)
 scroll tiny up here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_up(0.2)
-
-
-guppy: user.mouse_scroll_up_continuous()
-gupslow: user.mouse_scroll_up_continuous(0.45)
-#gups here:
-#    user.mouse_move_center_active_window()
-#    user.mouse_scroll_up_continuous()
-
-scroll gaze: user.mouse_gaze_scroll()
-scroll gaze here:
-    user.mouse_move_center_active_window()
-    user.mouse_gaze_scroll()
-scroll stop: user.mouse_scroll_stop()
-scroll stop here:
-    user.mouse_move_center_active_window()
-    user.mouse_scroll_stop()
-scroll left: user.mouse_scroll_left()
-scroll left here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_left()
 scroll tiny left: user.mouse_scroll_left(0.5)
@@ -140,7 +140,6 @@ scroll tiny right: user.mouse_scroll_right(0.5)
 scroll tiny right here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_right(0.5)
-
 copy mouse position: user.copy_mouse_position()
 
 # To scroll with a hiss sound, set mouse_enable_hiss_scroll to true in settings.talon
