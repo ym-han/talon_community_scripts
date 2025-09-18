@@ -1,0 +1,74 @@
+list: user.jj_argument
+-
+repository: --repository
+ignore working copy: --ignore-working-copy
+ignore immutable: --ignore-immutable
+at operation: --at-operation
+at op: --at-op
+debug: --debug
+color always: --color=always
+color never: --color=never
+color auto: --color=auto
+quiet: --quiet
+no pager: --no-pager
+config: --config
+config file: --config-file
+from: --from
+into: --into
+to: --to
+changes in: --changes-in
+interactive: --interactive
+tool: --tool
+message: --message
+message short: -m
+stdin: --stdin
+no edit: --no-edit
+edit flag: --edit
+reset author: --reset-author
+author: --author
+revisions: --revisions
+revset: -r
+limit: --limit
+reversed: --reversed
+no graph: --no-graph
+template: --template
+patch: --patch
+summary: --summary
+stat: --stat
+name only: --name-only
+color words: --color-words
+git format: --git
+context: --context
+ignore all space: --ignore-all-space
+ignore space change: --ignore-space-change
+destination: --destination
+source: --source
+branch arg: --branch
+insert after: --insert-after
+insert before: --insert-before
+keep divergent: --keep-divergent
+skip emptied: --skip-emptied
+bookmark: --bookmark
+all: --all
+tracked: --tracked
+deleted: --deleted
+change arg: --change
+named: --named
+remote: --remote
+allow new: --allow-new
+allow empty description: --allow-empty-description
+allow private: --allow-private
+dry run: --dry-run
+operation flag: --operation
+after flag: --after
+before flag: --before
+operation short: --op
+working: @
+working parent: @-
+working grand: @--
+working child: @+
+working grandchild: @++
+double colon: ::
+roots paren: roots()
+trunk paren: trunk()
+immutable paren: immutable_heads()

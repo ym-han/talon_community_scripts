@@ -1,0 +1,85 @@
+list: user.jj_command
+-
+abandon
+absorb
+back out: backout
+bookmark
+bookmark create
+bookmark delete
+bookmark forget
+bookmark list
+bookmark move
+bookmark rename
+bookmark set
+bookmark track
+bookmark untrack
+commit
+config
+config edit
+config get
+config list
+config set
+config unset
+describe
+diff
+diff edit: diffedit
+duplicate
+edit
+evolog
+file list
+fix
+git clone
+git export
+git fetch
+git import
+git init
+git push
+git remote
+git remote add
+git remote list
+git remote remove
+git remote rename
+git remote set url: git remote set-url
+git root
+help
+interdiff
+log
+meta edit: metaedit
+new
+next
+operation abandon
+operation diff
+operation log
+operation restore
+operation revert
+operation show
+parallelize
+prev
+rebase
+redo
+resolve
+restore
+revert
+root
+show
+simplify parents: simplify-parents
+sparse
+sparse edit
+sparse list
+sparse reset
+sparse set
+split
+squash
+status
+tag
+tag list
+undo
+unsign
+util completion
+version
+workspace add
+workspace forget
+workspace list
+workspace rename
+workspace root
+workspace update stale: workspace update-stale
