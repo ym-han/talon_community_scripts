@@ -30,7 +30,7 @@ def command_server_or_client_fallback(command_id: str, wait: bool):
         actions.user.paste(command_id)
         actions.key("enter")
         print(
-            "Command server directory not found; falling back to command palette.  For better performance, install the VSCode extension for Talon: https://marketplace.visualstudio.com/items?itemName=pokey.talon"
+            "Command server directory not found; falling back to command palette.  For better performance, install the VSCode extension for  https://marketplace.visualstudio.com/items?itemName=pokey.talon"
         )
 
 

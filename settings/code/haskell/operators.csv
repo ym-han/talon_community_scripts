@@ -1,0 +1,39 @@
+Operator, Spoken form
+-       , minus
++       , plus
+*       , times
+^       , exponent
+^       , integral exponent
+^^      , fractional exponent
+**      , floating exponent
+`div`   , divide
+`div`   , integral divide
+/       , fractional divide
+/       , floating divide
+`mod`   , modulo
+`mod`   , integral modulo
+==      , equal
+/=      , not equal
+>       , greater than
+>=      , greater than or equal
+<       , less than
+<=      , less than or equal
+&&      , and
+||      , or
+<$>     , F map
+<*>     , F apply
+<|>     , F alter
+->      , to
+<-      , from
+:       , cons
+=       , define
+=       , deaf
+</>     , join path
+<.>     , join extension
+-<.>    , replace extension
+<>      , monoid
+::      , has type
+=>      , has instance
+$       , dollar
+.       , compose
+>>=     , bind

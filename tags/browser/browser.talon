@@ -6,7 +6,9 @@ tag(): user.navigation
 
 go page | page focus: browser.focus_page()
 
-go home: browser.go_home()
+go home:    browser.go_home()
+go back:    key(cmd-[)
+go forward: key(cmd-])
 go private: browser.open_private_window()
 
 bookmark it: browser.bookmark()
@@ -27,3 +29,5 @@ show downloads: browser.show_downloads()
 show extensions: browser.show_extensions()
 show history: browser.show_history()
 show cache: browser.show_clear_cache()
+
+state hoogle: "hoogle"

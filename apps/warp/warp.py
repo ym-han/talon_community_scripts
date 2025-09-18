@@ -1,6 +1,10 @@
-from talon import Context, Module, actions
+from talon import Context, actions, ui, Module, app, clip
 
 mod = Module()
+
+mod.apps.warp = """
+app.name: warp
+"""
 
 mod.apps.warp = """
 os: mac
@@ -13,20 +17,39 @@ app: warp
 """
 
 
+def ckey():
+    return "cmd" if app.platform == "mac" else "ctrl"
+
+
+def on_mac():
+    return app.platform == "mac"
+
+
 @ctx.action_class("user")
-class UserActions:
+class user_actions:
     def tab_jump(number: int):
-        if number < 9:
-            actions.key(f"cmd-{number}")
+        if number < 0 or number > 9:
+            raise RuntimeError(f"number should be in range 1-9")
+        actions.key(f"{ckey()}-{number}")
 
     def tab_final():
-        actions.key("cmd-9")
+        if app.platform == "mac":
+            actions.key("cmd-9")
+        else:
+            actions.key("ctrl-9")
+
+    def terminal_change_directory(path: str):
+        dash_separated = "-".join(path.split(" "))
+        actions.insert(f"cd {dash_separated}")
+        actions.sleep("150ms")
+        if path:
+            actions.key("tab enter:2")
 
 
-@ctx.action_class("edit")
-class EditActions:
-    def word_left():
-        actions.key("alt-left")
+@ctx.action_class("app")
+class app_actions:
+    def tab_next():
+        actions.key(f"{ckey()}-shift-]")
 
-    def word_right():
-        actions.key("alt-right")
+    def tab_previous():
+        actions.key(f"{ckey()}-shift-[")

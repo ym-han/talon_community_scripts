@@ -1,0 +1,15 @@
+list: user.system_paths
+hostname: MacBook-Air
+-
+user: /Users/ymh
+profile: /Users/ymh
+desktop: /Users/ymh/Desktop
+desk: /Users/ymh/Desktop
+documents: /Users/ymh/Documents
+docks: /Users/ymh/Documents
+downloads: /Users/ymh/Downloads
+music: /Users/ymh/Music
+pictures: /Users/ymh/Pictures
+videos: /Users/ymh/Videos
+talon home: /Users/ymh/.talon
+talon user: /Users/ymh/.talon/user

@@ -33,6 +33,9 @@ class Actions:
         """
         actions.skip()
 
+    def noise_trigger_dental_click():
+        """Called when a dental_click noise is made."""
+        actions.skip()
 
 def noise_trigger_hiss_debounce(active: bool):
     """Since the hiss noise triggers while you're talking we need to debounce it"""
@@ -48,4 +51,5 @@ def noise_trigger_hiss_debounce(active: bool):
 
 
 noise.register("pop", lambda _: actions.user.noise_trigger_pop())
+noise.register("dental_click", lambda _: actions.user.noise_trigger_dental_click())
 noise.register("hiss", noise_trigger_hiss_debounce)

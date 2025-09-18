@@ -43,3 +43,12 @@ unit {user.css_unit}: insert(css_unit)
 
 [value] current color: "currentColor"
 op important: " !important"
+
+
+
+# common properties
+## TODO: Put thme in a list or something
+key text decoration: "text-decoration: "
+key text decoration line: "text-decoration-line: "
+key b g color: "background-color: "
+key line height: "line-height: "

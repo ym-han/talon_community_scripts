@@ -1,0 +1,54 @@
+list: user.symbol_key
+-
+
+#step:       space
+dot:           .
+point:         .
+drip:          ,
+stack:         :
+semi:          ;
+downscore:     _
+dasher:        -
+
+minus:         -
+plus:          +
+equal:         =
+equals:        =
+sym caret:     ^
+tilde:         ~
+bang:          !
+hash:          #
+star:          *
+dollar:        $
+percent:       %
+questo:        ?
+question mark: ?
+amper:         &
+at sign:       @
+swirl:         @
+sym pound:     £
+sym euro:      €
+
+single:        "'"
+double:        '"'
+quote:         '"'
+batick:        `
+
+slash:         /
+pipe:          |
+pike:          \
+
+leper:         (
+reper:         )
+brace:         {
+racer:         }
+square:        [
+rare:          ]
+angle:         <
+rangle:        >
+
+# Greek symbols
+sym lambda:    λ
+sym gamma:     Γ
+sym small gamma: γ
+sym member of: ∈

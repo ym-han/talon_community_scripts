@@ -127,7 +127,8 @@ class UserActions:
             setting_val == 2 and not actions.tracking.control_zoom_enabled()
         ) or (
             setting_val == 1
-            and is_using_eye_tracker
+            # Allow for pop to work also when eye tracker is not enabled
+            # and is_using_eye_tracker
             and not actions.tracking.control_zoom_enabled()
         )
 

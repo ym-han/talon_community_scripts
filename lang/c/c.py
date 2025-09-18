@@ -55,7 +55,7 @@ c_and_cpp_ctx.lists["self.stdint_types"] = {
     "struck": "struct",
     "num": "enum",
     "union": "union",
-    "float": "float",
+    "float": "float"
 }
 
 c_and_cpp_ctx.lists["self.c_types"] = {
@@ -75,6 +75,7 @@ c_and_cpp_ctx.lists["self.c_types"] = {
     "union": "union",
     "float": "float",
     "size tea": "size_t",
+    "bool": "bool",
 }
 
 ctx.lists["user.code_libraries"] = {
@@ -97,6 +98,28 @@ ctx.lists["user.code_libraries"] = {
     "standard int": "stdint.h",
 }
 
+# Add C-specific function library
+ctx.lists["user.code_functions"] = {
+    "mem copy": "memcpy",
+    "mem set": "memset",
+    "string cat": "strcat",
+    "stir cat": "strcat",
+    "stir copy": "strcpy",
+    "string char": "strchr",
+    "string dup": "strdup",
+    "stir comp": "strcmp",
+    "string len": "strlen",
+    "stir len": "strlen",
+    "is digit": "isdigit",
+    "get char": "getchar",
+    "print f": "printf",
+    "ay to eye": "atoi",
+    "size of": "sizeof",
+    "malloc": "malloc",
+    "see alloc": "calloc",
+    "re alloc": "realloc",
+    "free": "free",
+}
 mod.list("c_pointers", desc="Common C pointers")
 mod.list("c_signed", desc="Common C datatype signed modifiers")
 mod.list("c_types", desc="Common C types")

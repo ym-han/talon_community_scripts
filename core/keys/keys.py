@@ -23,6 +23,7 @@ mod.list("function_key", desc="All function keys")
 mod.list("special_key", desc="All special keys")
 mod.list("keypad_key", desc="All keypad keys")
 mod.list("punctuation", desc="words for inserting punctuation into text")
+mod.list("saranable_key", desc="Symbols / things that can be wrapped in spaces")
 
 
 @mod.capture(rule="{self.modifier_key}+")
@@ -79,6 +80,12 @@ def function_key(m) -> str:
     return m.function_key
 
 
+@mod.capture(rule="{self.saranable_key}")
+def saranable_key(m) -> str:
+    "Space wrapped symbol key"
+    return str(m)
+
+
 @mod.capture(rule="( <self.letter> | <self.number_key> | <self.symbol_key> )")
 def any_alphanumeric_key(m) -> str:
     "any alphanumeric key"
@@ -123,6 +130,22 @@ class Actions:
         return punctuation_dict
 
 
+# Create saranable_key list - symbols wrapped in spaces
+only_for_saran = {
+    "big arrow": "=>",
+    "arrow": "->",
+    "reversed arrow": "<-",
+    "not equal": "!=",
+    "pipe": "|",
+    "dollar": "$",
+    "em dash": "---",
+    "starry": "*"
+}
+
+saranable_key_words = {binding: f" {symbol} " for binding, symbol in symbol_key_dict.items()}
+saranable_key_words.update({binding: f" {symbol} " for binding, symbol in only_for_saran.items()})
+
 ctx.lists["user.punctuation"] = punctuation_dict
 ctx.lists["user.symbol_key"] = symbol_key_dict
+ctx.lists["user.saranable_key"] = saranable_key_words
 ctx_dragon.lists["user.punctuation"] = dragon_punctuation_dict

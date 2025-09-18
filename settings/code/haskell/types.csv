@@ -1,0 +1,17 @@
+Type, Spoken form
+Int, int
+Integer, integer
+String, string
+Text, text
+(), unit
+Eq, eek
+Ord, ord
+Functor, functor
+Applicative, applicative
+Monad, monad
+Foldable, foldable
+Traversable, traversable
+Pi, pie
+Nil, nil
+Cons, cons
+Bool, bool

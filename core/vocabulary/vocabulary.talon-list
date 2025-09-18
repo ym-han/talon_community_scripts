@@ -1,11 +1,51 @@
 list: user.vocabulary
 -
-N map: nmap
-under documented: under-documented
-nmap
 admin
+A P I: API
 Cisco
-Citrix
 VPN
 DNS
 Minecraft
+null hypothesis
+haskell
+html
+breadth first
+depth first
+applicative
+monad
+node
+evaluate
+maude
+parse tree
+pi test: pytest
+ide
+van cake: vscode
+walkthrough
+walkthroughs
+wiki
+tuple
+mouse jay: knausj
+delimiter
+debounce
+PR
+app
+dir
+min
+eenum: enum
+fifo
+jason: json
+flash card: flashcard
+flash cards: flashcards
+script
+scripts
+existential
+type inference
+LambdaCase
+functorial
+monoid al: monoidal
+cursor less: cursorless
+curse less: cursorless
+calculus
+collaborator
+openrouter
+docstring

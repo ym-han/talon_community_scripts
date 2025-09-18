@@ -24,6 +24,10 @@ settings():
     user.code_protected_variable_formatter = "SNAKE_CASE"
     user.code_public_variable_formatter = "SNAKE_CASE"
 
+# C-specific voice commands
+type void star: "void*"
+type size t: "size_t"
+
 # NOTE: migrated from generic, as they were only used here, though once cpp support is added, perhaps these should be migrated to a tag together with the commands below
 state include: user.insert_snippet_by_name("importStatement")
 state include system: user.insert_snippet_by_name("includeSystemStatement")
@@ -31,6 +35,17 @@ state include local: user.insert_snippet_by_name("includeLocalStatement")
 state type deaf: insert("typedef ")
 state type deaf struct: user.insert_snippet_by_name("typedefStructDeclaration")
 
+mutex lock: "mtx.lock();"
+mutex unlock: "mtx.unlock();"
+dot load: ".load()"
+
+state this: "this->"
+#this work queue: "this->work_queue"
+
+shard mutex: "shard_mtx"
+shard map: "shard_map"
+servers vector mutex: "servers_vec_mtx"
+servers vector: "servers_vec"
 # XXX - create a preprocessor tag for these, as they will match cpp, etc
 state define: user.insert_snippet_by_name("preprocessorDefineStatement")
 state (undefine | undeaf): user.insert_snippet_by_name("preprocessorUndefineStatement")
@@ -49,6 +64,8 @@ state pre else if: user.insert_snippet_by_name("preprocessorElseIfStatement")
 state pre end: user.insert_snippet_by_name("preprocessorEndIfStatement")
 state pragma: user.insert_snippet_by_name("preprocessorPragmaStatement")
 state default: "default:\nbreak;"
+
+state else branch: "} else {"
 
 #control flow
 #best used with a push like command
@@ -72,11 +89,17 @@ push braces:
 
 <user.c_variable> <user.letter>: insert("{c_variable} {letter} ")
 
+# Project speciifc
+
+file struct: "struct io300_file *f"
+
+
 # Ex. (int *)
 cast to <user.c_cast>: "{c_cast}"
 standard cast to <user.stdint_cast>: "{stdint_cast}"
-<user.c_types>: "{c_types}"
+type <user.c_types>: "{c_types}"
 <user.c_pointers>: "{c_pointers}"
+state <user.c_keywords>: "{c_keywords}"
 <user.c_signed>: "{c_signed} "
 <user.c_fixed_integer>: "{c_fixed_integer}"
 standard <user.stdint_types>: "{stdint_types}"
@@ -85,3 +108,14 @@ int main: user.insert_between("int main(", ")")
 include <user.code_libraries>:
     user.code_insert_library(code_libraries, "")
     key(end enter)
+
+null character: "'\\0'"
+
+name pointer: "ptr"
+
+# for C++
+null pointer: "nullptr" 
+
+
+bit shift right: ">>"   
+bit shift left: "<<"   

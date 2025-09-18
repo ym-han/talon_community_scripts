@@ -1,0 +1,51 @@
+                    GAMEPAD BUTTON LAYOUT
+                         
+         L2 (Scroll Up)                    R2 (Scroll Down)
+              ▲                                ▲
+              │                                │
+        ┌─────┴─────┐                    ┌─────┴─────┐
+        │L1 Go Back │                    │R1 Go Fwd │
+        └───────────┘                    └───────────┘
+        
+    ┌───┐                                          ┌───┐
+    │ 0 │ L2 Trigger                    R2 Trigger │ 0 │
+    └───┘                                          └───┘
+    
+    ┌───┐                                          ┌───┐
+    │   │ L1 Shoulder                  R1 Shoulder │   │
+    └───┘                                          └───┘
+    
+              ┌─────────┐          ┌─────────┐
+              │ SELECT  │          │  START  │
+              │(unused) │          │ Speech  │
+              └─────────┘          └─────────┘
+              
+    ┌─────────────────┐                    ┌─────────────────┐
+    │      DPAD       │                    │   ABXY BUTTONS  │
+    │                 │                    │                 │
+    │       ┌───┐     │                    │       ┌───┐     │
+    │       │ ↑ │     │                    │       │ N │     │ 
+    │   ┌───┼───┼───┐ │                    │   ┌───┼───┼───┐ │
+    │   │ ← │   │ → │ │                    │   │ W │   │ E │ │
+    │   └───┼───┼───┘ │                    │   └───┼───┼───┘ │
+    │       │ ↓ │     │                    │       │ S │ ◄── gamepad_press_south
+    │       └───┘     │                    │       └───┘     │
+    │                 │                    │                 │
+    │   Mouse Jump    │                    │                 │
+    │   Directions    │                    │ N=Left Drag     │
+    └─────────────────┘                    │ S=Right Drag    │
+                                           │ E=Ctrl+Click    │
+                                           │ W=Left Drag     │
+                                           └─────────────────┘
+    
+            ┌─────┐                              ┌─────┐
+            │  ●  │ L3 Click                     │  ●  │ R3 Click
+            │     │ Toggle Slow Scroll           │     │ Toggle Slow Mouse
+            └─────┘                              └─────┘
+            ┌─────┐                              ┌─────┐
+            │ 0,0 │ LEFT STICK                   │ 0,0 │ RIGHT STICK  
+            │     │ Scrolling                    │     │ Mouse Movement
+            └─────┘                              └─────┘
+            
+
+ANSWER: gamepad_press_south = Bottom button (S) in the ABXY cluster = Right mouse drag

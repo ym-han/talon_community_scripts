@@ -1,10 +1,26 @@
-os: linux
+#os: linux
 # XXX - this matches .gdb files atm
 #win.title: /gdb/
 tag: terminal
 and tag: user.gdb
 -
 tag(): user.debugger
+
+layout source: "layout src"
+
+g d b: "gdb -tui"
+
+g d b alone: "gdb "
+
+a pro pos: "apropos "
+
+next: "n\n"
+step into: "s\n"
+
+run existing: "r existing"
+
+set break: "b "
+
 until <number>: "until {number}"
 force clear all break points:
     insert("d br\n")
@@ -62,6 +78,7 @@ undisplay: "undisplay\n"
 (list | show | info) variable typed: "info variable -t "
 (list | show | info) locals: "info local\n"
 (list | show | info) variables: "info variables\n"
+frame <number_small>: "frame {number_small}"
 
 # threads
 info threads: "info threads\n"
@@ -100,3 +117,11 @@ set list size <number_small>: "set listsize {number_small}\n"
 
 # misc
 clear screen: "shell clear\n"
+
+
+
+show read write new: "p f->rw_new\n"
+show new next index: "p new_next_cache_idx\n"
+show next index: "p f->next_cache_idx\n"
+
+

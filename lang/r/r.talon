@@ -36,3 +36,14 @@ state na: insert("NA")
 
 named arg {user.code_parameter_name}:
     user.code_insert_named_argument(code_parameter_name)
+
+join string: "str_c( , collapse = '')"
+
+state class: "class("
+state args: "args("
+state structure: "str("
+state matrix: "matrix("
+
+
+c vec: "c("
+assign to: " <- "

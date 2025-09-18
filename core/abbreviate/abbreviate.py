@@ -1,14 +1,11 @@
-import re
-
 from talon import Context, Module
 
 from ..user_settings import track_csv_list
 
 mod = Module()
-ctx = Context()
 mod.list("abbreviation", desc="Common abbreviation")
 
-abbreviations_list = {}
+
 abbreviations = {
     "J peg": "jpg",
     "abbreviate": "abbr",
@@ -448,31 +445,27 @@ abbreviations = {
     "work in progress": "wip",
 }
 
+def remove_whitespace(mapping):
+    return {k: v.strip() for (k, v) in mapping.items()}
 
-@mod.capture(rule="brief {user.abbreviation}")
-def abbreviation(m) -> str:
-    return m.abbreviation
-
-
-@track_csv_list(
-    "abbreviations.csv", headers=("Abbreviation", "Spoken Form"), default=abbreviations
-)
-def on_abbreviations(values):
-    global abbreviations_list
-
-    # note: abbreviations_list is  imported by the create_spoken_forms module
-    abbreviations_list = values
-
-    # Matches letters and spaces, as currently, Talon doesn't accept other characters in spoken forms.
-    PATTERN = re.compile(r"^[a-zA-Z ]+$")
-    abbreviation_values = {
-        v: v for v in abbreviations_list.values() if PATTERN.match(v) is not None
-    }
-
+def create_abbreviations_with_values(abbreviations_data):
     # Allows the abbreviated/short form to be used as spoken phrase. eg "brief app" -> app
-    abbreviations_list_with_values = {
-        **{v: v for v in abbreviation_values.values()},
-        **abbreviations_list,
-    }
+    return remove_whitespace({
+        **{v: v for v in abbreviations_data.values()},
+        **abbreviations_data,
+    })
 
-    ctx.lists["user.abbreviation"] = abbreviations_list_with_values
+ctx = Context()
+# Initialize with defaults, will be updated by CSV tracker
+ctx.lists["user.abbreviation"] = create_abbreviations_with_values(abbreviations)
+
+# Set up CSV tracking for abbreviations customization
+@track_csv_list(
+    "abbreviations.csv",
+    ("Abbreviation", "Spoken Form"),
+    abbreviations,
+    is_spoken_form_first=True
+)
+def update_abbreviations(data):
+    clean_data = remove_whitespace(data)
+    ctx.lists["user.abbreviation"] = create_abbreviations_with_values(clean_data)

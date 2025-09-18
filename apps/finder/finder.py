@@ -63,7 +63,8 @@ class UserActions:
     def file_manager_new_folder(name: str):
         """Creates a new folder in a gui filemanager or inserts the command to do so for terminals"""
         actions.key("cmd-shift-n")
-        actions.insert(name)
+        actions.sleep("50ms")
+        actions.insert(name[0] + name) # Hack 
 
     def file_manager_open_file(path: str):
         """opens the file"""

@@ -1,17 +1,33 @@
 os: linux
+os: mac
 tag: user.tmux
+tag: terminal
+
 -
 mux: "tmux "
+mux new session: insert("tmux new -s ")
+
 
 #session management
-mux new session: insert("tmux new ")
 mux sessions:
     key(ctrl-b)
     key(s)
+
+mux lisa: "tmux ls \n"
 mux name session:
     key(ctrl-b)
     key($)
 mux kill session: insert("tmux kill-session -t ")
+
+mux exit: "exit\n"
+
+mux attach: "tmux attach"
+mux attach t: "tmux attach -t "
+
+mux detach: 
+    key(ctrl-b)
+    key(d)
+
 #window management
 mux new window:
     key(ctrl-b)

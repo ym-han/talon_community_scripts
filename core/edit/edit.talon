@@ -1,85 +1,251 @@
-# Compound of action(select, clear, copy, cut, paste, etc.) and modifier(word,
-# line, etc.) commands for editing text.
-# eg: "select line", "clear all"
-# For overriding or creating aliases for specific actions, this function will
-# also accept strings, e.g. `user.edit_command("delete", "wordLeft")`.
-# See edit_command_modifiers.py to discover the correct string for the modify argument,
-# and `edit_command_actions.py` `simple_action_callbacks` to find strings for the action argument.
-<user.edit_action> <user.edit_modifier>: user.edit_command(edit_action, edit_modifier)
+# old bindings: https://github.com/ym-han/knausj_talon/blob/057634fa2cffb1be82776339da791c1836fd7dfc/text/generic_editor.talon
+# inspired also by Wen Kokke's version (https://github.com/wenkokke/talon-user/blob/78bf5c91333d628481e8f386ff3f454b224c6402/core/edit/edit.talon#L146)
 
-# Zoom
-zoom in: edit.zoom_in()
-zoom out: edit.zoom_out()
-zoom reset: edit.zoom_reset()
 
-# Searching
-find it: edit.find()
-next one: edit.find_next()
+
+# Find
+scout it: edit.find()
+
+scout next: edit.find_next()
+scout prev: edit.find_previous()
+
+
+# Save
+
+save it: edit.save()
+file save all: edit.save_all()
+
+
+# Undo/Redo
+
+nope that: edit.undo()
+redo: edit.redo()
+
 
 # Navigation
 
-# The reason for these spoken forms is that "page up" and "page down" are globally defined as keys.
-scroll up: edit.page_up()
-scroll down: edit.page_down()
+^<number_small> before:
+    edit.word_left()
+    repeat(number_small - 1)
 
-# go left, go left left down, go 5 left 2 down
-# go word left, go 2 words right
-go <user.navigation_step>+: user.perform_navigation_steps(navigation_step_list)
+^<number_small> after:
+    edit.word_right()
+    repeat(number_small - 1)
 
-go line start | head: edit.line_start()
-go line end | tail: edit.line_end()
+goal: edit.left()
+gore: edit.right()
 
-go way left:
-    edit.line_start()
-    edit.line_start()
-go way right: edit.line_end()
-go way up: edit.file_start()
-go way down: edit.file_end()
+goop: edit.up()
+gown: edit.down()
 
-go top: edit.file_start()
-go bottom: edit.file_end()
+moon: edit.word_left()
+steppy: edit.word_right()
 
-go page up: edit.page_up()
-go page down: edit.page_down()
+head: edit.line_start()
+tail: edit.line_end()
 
-# Indentation
-indent [more]: edit.indent_more()
-(indent less | out dent): edit.indent_less()
+
+page up: edit.page_up()
+page down: edit.page_down()
+
+file head: edit.file_start()
+file tail: edit.file_end()
+
+
+# Zoom
+
+zoom in: edit.zoom_in()
+zoom out: edit.zoom_out()
+
+
+
+# Insert
+
+slurp: edit.line_insert_up()
+pour: edit.line_insert_down()
+
+# dup line: edit.line_clone()
+dup it: edit.selection_clone()
+
+# Select
+
+cork none: edit.select_none()
+
+grab up: edit.extend_up()
+grab down: edit.extend_down()
+
+grab left: edit.extend_left()
+grab right: edit.extend_right()
+
+take word: edit.select_word()
+take line: edit.select_line()
+
+
+grab (moon | word left): edit.extend_word_left()
+grab (step | word right): edit.extend_word_right()
+
+grab file head: edit.extend_file_start()
+grab file tail: edit.extend_file_end()
+
+select all: edit.select_all()
+
+
+select up: edit.extend_line_up()
+select down: edit.extend_line_down()
+
+
+grab head: edit.extend_line_start()
+grab tail: edit.extend_line_end()
+
+
+# Delete
+
+(wipe | chuck) gore:
+    edit.right()
+    edit.delete()
+
+(wipe | chuck) word:
+    edit.select_word()
+    edit.delete()
+#clear word: edit.delete_word()
+
+(wipe | chuck) (moon | word left):
+    edit.extend_word_left()
+    edit.delete()
+
+(wipe | chuck) (step | word right):
+    edit.extend_word_right()
+    edit.delete()
+
+ex line: edit.delete_line()
+
+ex up:
+    edit.extend_line_up()
+    edit.delete()
+
+ex down:
+    edit.extend_line_down()
+    edit.delete()
+
+ex left:
+    edit.extend_line_start()
+    edit.delete()
+
+ex right:
+    edit.extend_line_end()
+    edit.delete()
+
+ex all up:
+    edit.extend_file_start()
+    edit.delete()
+
+ex all down:
+    edit.extend_file_end()
+    edit.delete()
+
+ex all:
+    edit.select_all()
+    edit.delete()
+
+ex file head:
+    edit.extend_file_start()
+    edit.delete()
+
+ex file tail:
+    edit.extend_file_end()
+    edit.delete()
+
 
 # Copy
-copy that: edit.copy()
+
+cop it: edit.copy()
+
+copy word:
+    edit.select_word()
+    edit.copy()
+
+copy all:
+    edit.select_all()
+    edit.copy()
+
+copy (moon | word left):
+    edit.extend_word_left()
+    edit.copy()
+
+copy (step | word right):
+    edit.extend_word_right()
+    edit.copy()
+
+copy line:
+    edit.select_line()
+    edit.copy()
+
+
+copy head:
+    edit.extend_line_start()
+    edit.copy()
+    key(right)
+
+copy tail:
+    edit.extend_line_end()
+    edit.copy()
+    key(left)
+
+copy header:
+    edit.extend_file_start()
+    edit.copy()
+    key(right)
+
+copy tailor:
+    edit.extend_file_end()
+    edit.copy()
+    key(left)
+
 
 # Cut
-cut that: edit.cut()
+
+
+cut it: edit.cut()
+
+cut word:
+    edit.select_word()
+    edit.cut()
+
+cut (moon | word left):
+    edit.extend_word_left()
+    edit.cut()
+
+cut (step | word right):
+    edit.extend_word_right()
+    edit.cut()
+
+cut line:
+    edit.select_line()
+    edit.cut()
+
+cut head:
+    edit.extend_line_start()
+    edit.cut()
+
+cut tail:
+    edit.extend_line_end()
+    edit.cut()
+
+cut all:
+    edit.select_all()
+    edit.cut()
+
+cut file head:
+    edit.extend_file_start()
+    edit.cut()
+
+cut file tail:
+    edit.extend_file_end()
+    edit.cut()
+
 
 # Paste
-(pace | paste) (that | it): edit.paste()
-(pace | paste) enter:
-    edit.paste()
-    key(enter)
+
+paste it: edit.paste()
+
 paste match: edit.paste_match_style()
-
-# Duplication
-clone that: edit.selection_clone()
-clone line: edit.line_clone()
-
-# Insert new line
-new line above: edit.line_insert_up()
-new line below | slap: edit.line_insert_down()
-
-# Insert padding with optional symbols
-padding: user.insert_between(" ", " ")
-(pad | padding) <user.symbol_key>+:
-    insert(" ")
-    user.insert_many(symbol_key_list)
-    insert(" ")
-
-# Undo/redo
-undo that: edit.undo()
-redo that: edit.redo()
-
-# Save
-file save: edit.save()
-file save all: edit.save_all()
-
-[go] line mid: user.line_middle()

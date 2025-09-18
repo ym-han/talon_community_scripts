@@ -29,7 +29,8 @@ manager refresh: user.file_manager_update_lists()
     user.file_manager_open_file(file)
 
 #new folder
-folder new [<user.text>]: user.file_manager_new_folder(text or "")
+folder new <user.text>: user.file_manager_new_folder(text)
+folder new: user.file_manager_new_folder("blank")
 
 #show properties
 properties show: user.file_manager_show_properties()

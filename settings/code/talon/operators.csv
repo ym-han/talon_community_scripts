@@ -1,0 +1,15 @@
+Operator, Spoken form
++       , plus
+-       , minus
+*       , times
+/       , divide
+%       , modulo
+==      , equal
+!=      , not equal
+>       , greater than
+>=      , greater than or equal
+<       , smaller than
+<=      , smaller than or equal
+and     , and
+or      , or
+=       , assign
