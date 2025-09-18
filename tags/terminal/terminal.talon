@@ -41,18 +41,14 @@ l s: "ls\n"
 lisa hidden: "ls -lah\n"
 lisa: user.terminal_list_directories()
 lisa all: user.terminal_list_all_directories()
+
 katie [dir] [<user.text>]: user.terminal_change_directory(text or "")
 katie root: user.terminal_change_directory_root()
-katie (up | back): user.terminal_change_directory("..")
-
-cd [dir] [<user.text>]: user.terminal_change_directory(text or "")
-cd root: user.terminal_change_directory_root()
-cd up:
-  insert("cd ..")
-  key(enter)
-cd back:
+katie up: user.terminal_change_directory("..")
+katie back:
   insert("cd -")
   key(enter)
+
 go <user.system_path>: insert('cd "{system_path}"\n')
 path <user.system_path>: insert('"{system_path}"')
 clear screen: user.terminal_clear_screen()

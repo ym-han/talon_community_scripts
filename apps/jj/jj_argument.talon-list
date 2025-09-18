@@ -43,7 +43,7 @@ ignore all space: --ignore-all-space
 ignore space change: --ignore-space-change
 destination: --destination
 source: --source
-branch arg: --branch
+branch: --branch
 insert after: --insert-after
 insert before: --insert-before
 keep divergent: --keep-divergent
@@ -65,10 +65,9 @@ before flag: --before
 operation short: --op
 working: @
 working parent: @-
-working grand: @--
+working grandparent: @--
 working child: @+
 working grandchild: @++
-double colon: ::
 roots paren: roots()
 trunk paren: trunk()
 immutable paren: immutable_heads()
