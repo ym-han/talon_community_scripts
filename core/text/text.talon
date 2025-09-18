@@ -1,8 +1,8 @@
 #provide both anchored and unachored commands via 'over'
-phrase <user.text>$:
+phrasey <user.text>$:
     user.add_phrase_to_history(text)
     insert(text)
-phrase <user.text> {user.phrase_ender}:
+phrasey <user.text> {user.phrase_ender}:
     user.add_phrase_to_history(text)
     insert("{text}{phrase_ender}")
 {user.prose_formatter} <user.prose>$: user.insert_formatted(prose, prose_formatter)
